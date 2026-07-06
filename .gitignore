@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Thumbnails
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# JetBrains IDEs
+.idea/
+
+# Node (if any tooling is ever added)
+node_modules/
+npm-debug.log*
+
+# Environment files
+.env
+.env.local

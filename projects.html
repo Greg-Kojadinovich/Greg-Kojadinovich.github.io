@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Gregory Kojadinovich II</title>
+  <meta name="description" content="ML, AI, and software projects by Gregory Kojadinovich II — Kaggle competitions, LLM fine-tuning, iOS development, and data science.">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">GREG <span>KOJADINOVICH</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Engineering</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="space.html">Space</a></li>
+      <li><a href="colorwheel.html">Color Wheel</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <p class="hero-eyebrow">ML &nbsp;·&nbsp; AI &nbsp;·&nbsp; Software</p>
+      <h1>Projects &amp; <em>Research</em></h1>
+      <hr class="hero-divider">
+      <p class="hero-tagline">
+        Kaggle competitions, LLM fine-tuning, iOS apps, and data science — built with rigor and published results.
+      </p>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <p class="section-label">Featured Work</p>
+      <h2 class="section-title">Machine Learning &amp; <em>Software</em></h2>
+      <div class="card-grid" id="projects-grid">
+        <!-- Rendered by projects.js model + inline controller below -->
+      </div>
+    </section>
+
+    <hr class="accent-bar" style="max-width:var(--max-w); margin-left:auto; margin-right:auto;">
+
+    <section class="section" style="padding-top:2rem;">
+      <p class="section-label">Credentials</p>
+      <h2 class="section-title">Certificates &amp; <em>Training</em></h2>
+      <div class="skills-cloud" id="certs-cloud"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <ul class="footer-links">
+      <li><a href="https://github.com/Greg-Kojadinovich" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/gregory-kojadinovich/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://www.kaggle.com/gregkoja" target="_blank" rel="noopener">Kaggle</a></li>
+      <li><a href="https://www.europawaters.xyz" target="_blank" rel="noopener">Europa Waters</a></li>
+      <li><a href="mailto:gregkoja3343@icloud.com">Contact</a></li>
+    </ul>
+    <p>&copy; 2026 Gregory Kojadinovich II &nbsp;·&nbsp; Europa Waters LLC</p>
+  </footer>
+
+  <script src="js/models/projects.js"></script>
+  <script src="js/controllers/nav.js"></script>
+  <script>
+    // Controller: render project cards from model
+    var grid = document.getElementById('projects-grid');
+    projects.forEach(function (p) {
+      var card = document.createElement('div');
+      card.className = 'card';
+      var medalHTML = p.medal
+        ? '<div style="font-family:\'Helvetica Neue\',Arial,sans-serif;font-size:0.8rem;font-weight:700;color:var(--gold);margin-bottom:0.3rem;">' + p.medal + '</div>'
+        : '';
+      card.innerHTML =
+        '<span class="card-tag">' + p.tag + '</span>' +
+        medalHTML +
+        '<h3>' + p.title + '</h3>' +
+        '<p>' + p.description + '</p>' +
+        '<a href="' + p.link + '" target="_blank" rel="noopener" class="card-link">' + p.linkLabel + ' →</a>';
+      grid.appendChild(card);
+    });
+
+    // Controller: render certificate tags
+    var certsCloud = document.getElementById('certs-cloud');
+    certificates.forEach(function (c) {
+      var span = document.createElement('span');
+      span.className = 'skill-tag';
+      span.textContent = c;
+      certsCloud.appendChild(span);
+    });
+  </script>
+
+</body>
+</html>

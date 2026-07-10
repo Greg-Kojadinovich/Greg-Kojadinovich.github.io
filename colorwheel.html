@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Wheel | Gregory Kojadinovich II</title>
+  <meta name="description" content="Interactive RYB color wheel — web version of the Color Wheel iOS app by Gregory Kojadinovich II.">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* ---- LAYOUT ---- */
+    .cw-layout {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 4rem;
+      align-items: start;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* ---- CANVAS ---- */
+    .canvas-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    #wheel-canvas {
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      cursor: crosshair;
+      border-radius: 50%;
+      box-shadow: 0 4px 24px var(--shadow);
+    }
+
+    .wheel-hint {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.78rem;
+      color: var(--mid);
+      letter-spacing: 0.06em;
+      text-align: center;
+    }
+
+    /* ---- SWATCHES ---- */
+    .mix-panel { width: 100%; }
+
+    .mix-panel h3 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .swatches {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .swatch-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .swatch {
+      width: 60px;
+      height: 60px;
+      border-radius: var(--radius);
+      border: 2px solid var(--light);
+      box-shadow: 0 2px 8px var(--shadow);
+      transition: background 0.3s ease;
+    }
+
+    .swatch.large {
+      width: 76px;
+      height: 76px;
+    }
+
+    .swatch-name {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    .swatch-hex {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.68rem;
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    .op-symbol {
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-top: -1rem;
+    }
+
+    .op-equals { color: var(--purple); }
+
+    /* ---- RIGHT COLUMN ---- */
+    .info-col { display: flex; flex-direction: column; gap: 2rem; }
+
+    /* ---- PAINTING IMAGE ---- */
+    .painting-frame {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 2px solid var(--gold);
+      box-shadow: 0 4px 20px var(--shadow);
+    }
+
+    .painting-frame img {
+      width: 100%;
+      display: block;
+    }
+
+    .painting-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #F0E6D0 0%, #C8AB82 50%, #8C6840 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: rgba(28,28,46,0.5);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ---- APP BADGE ---- */
+    .app-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      padding: 1rem 1.25rem;
+      background: var(--dark);
+      color: var(--white);
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      transition: background 0.2s;
+      width: fit-content;
+    }
+
+    .app-badge:hover { background: var(--purple); }
+
+    .app-badge-text { line-height: 1.3; }
+    .app-badge-sub  { font-size: 0.68rem; opacity: 0.65; display: block; }
+    .app-badge-main { font-size: 0.92rem; font-weight: 600; }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 860px) {
+      .cw-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">GREG <span>KOJADINOVICH</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Engineering</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="space.html">Space</a></li>
+      <li><a href="colorwheel.html">Color Wheel</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <p class="hero-eyebrow">iOS App &nbsp;·&nbsp; Open Source &nbsp;·&nbsp; RYB Pigment Mixing</p>
+      <h1>Color <em>Wheel</em></h1>
+      <hr class="hero-divider">
+      <p class="hero-tagline">
+        A painter's tool built on real subtractive RYB physics — not the RGB model used in screens.
+        Click any two segments to mix colors.
+      </p>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <div class="cw-layout">
+
+        <!-- LEFT — Canvas + Swatches -->
+        <div class="canvas-col">
+          <canvas id="wheel-canvas" width="400" height="400"
+                  aria-label="Interactive RYB Color Wheel — click two segments to mix"></canvas>
+          <p class="wheel-hint">Click two hues &nbsp;·&nbsp; Alternates Color 1 / Color 2</p>
+
+          <div class="mix-panel">
+            <h3>Color Mix</h3>
+            <div class="swatches">
+              <div class="swatch-group">
+                <div class="swatch" id="swatch-1" style="background:#FF2200;"></div>
+                <span class="swatch-name" id="name-1">Red</span>
+                <span class="swatch-hex"  id="hex-1">#FF2200</span>
+              </div>
+
+              <span class="op-symbol">+</span>
+
+              <div class="swatch-group">
+                <div class="swatch" id="swatch-2" style="background:#0047AB;"></div>
+                <span class="swatch-name" id="name-2">Blue</span>
+                <span class="swatch-hex"  id="hex-2">#0047AB</span>
+              </div>
+
+              <span class="op-symbol op-equals">=</span>
+
+              <div class="swatch-group">
+                <div class="swatch large" id="swatch-mixed" style="background:#7F34D7;"></div>
+                <span class="swatch-name">Mixed</span>
+                <span class="swatch-hex" id="hex-mixed">#7F34D7</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT — App info + painting -->
+        <div class="info-col">
+
+          <div>
+            <p class="section-label">About the App</p>
+            <h2 class="section-title" style="font-size:1.6rem; margin-bottom:1rem;">Built for <em>Painters</em></h2>
+            <p style="color:var(--mid); font-size:0.9rem; line-height:1.8;">
+              Traditional digital color tools use RGB or HSL — which don't reflect how real
+              paint behaves on a palette. This app models <strong>subtractive RYB pigment mixing</strong>,
+              the system taught in fine art and plein air painting. Designed so painters can
+              understand color relationships before they touch a brush.
+            </p>
+          </div>
+
+          <!-- Painting image — replace src with AI-generated plein air image -->
+          <div class="painting-frame">
+            <!-- TODO: Add AI-generated image of plein air painting with Color Wheel app
+                 Place file at: assets/images/plein-air-colorwheel.jpg
+                 Then replace the placeholder div below with:
+                 <img src="assets/images/plein-air-colorwheel.jpg" alt="Plein air painter using the Color Wheel app"> -->
+            <div class="painting-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <path d="M21 15l-5-5L5 21"/>
+              </svg>
+              <span>Plein Air Painting — Image Coming Soon</span>
+            </div>
+          </div>
+
+          <!-- GitHub badge -->
+          <a href="https://github.com/Greg-Kojadinovich" target="_blank" rel="noopener" class="app-badge">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58
+                0-.28-.01-1.02-.01-2-3.34.72-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75
+                -1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.48.99
+                .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22
+                -.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005
+                2.04.138 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84
+                1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22
+                0 1.6-.01 2.9-.01 3.29 0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12
+                0-6.63-5.37-12-12-12z"/>
+            </svg>
+            <div class="app-badge-text">
+              <span class="app-badge-sub">View source on</span>
+              <span class="app-badge-main">GitHub — Color Wheel iOS App</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <ul class="footer-links">
+      <li><a href="https://github.com/Greg-Kojadinovich" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/gregory-kojadinovich/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://www.kaggle.com/gregkoja" target="_blank" rel="noopener">Kaggle</a></li>
+      <li><a href="https://www.europawaters.xyz" target="_blank" rel="noopener">Europa Waters</a></li>
+      <li><a href="mailto:gregkoja3343@icloud.com">Contact</a></li>
+    </ul>
+    <p>&copy; 2026 Gregory Kojadinovich II &nbsp;·&nbsp; Europa Waters LLC</p>
+  </footer>
+
+  <script src="js/controllers/nav.js"></script>
+  <script src="js/controllers/colorwheel.js"></script>
+
+</body>
+</html>

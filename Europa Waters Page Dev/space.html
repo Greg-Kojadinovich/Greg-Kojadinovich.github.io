@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Space | Gregory Kojadinovich II</title>
   <meta name="description" content="Explore the solar system — Europa Waters LLC and NASA Eyes on the Solar System.">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     .space-stage {
       min-height: calc(100vh - var(--nav-h));
@@ -144,18 +147,24 @@
 </head>
 <body>
 
-  <nav class="navbar">
-    <a href="index.html" class="nav-brand">GREG <span>KOJADINOVICH</span></a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+  <nav class="nav">
+    <a class="nav-brand" href="home.html">
+      <span class="nav-logo-dot"></span>
+      <span class="nav-brand-text">EUROPA WATERS LLC</span>
+    </a>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="https://www.europawaters.xyz/about">About</a></li>
+      <li><a href="https://www.europawaters.xyz/category/all-products">Shop</a></li>
+      <li><a href="index.html">Portfolio</a></li>
       <li><a href="portfolio.html">Engineering</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="space.html">Space</a></li>
+      <li><a href="projects.html">Artificial Intelligence</a></li>
+      <li><a href="projects_gk.html">EW Projects</a></li>
+      <li><a href="services_gk.html">Services</a></li>
+      <li><a href="space.html" class="nav-active">Space</a></li>
       <li><a href="colorwheel.html">Color Wheel</a></li>
     </ul>
+    <a href="services_gk.html#contact" class="btn btn-primary btn-sm">Hire Greg</a>
   </nav>
 
   <main>
@@ -209,8 +218,8 @@
     <p>&copy; 2026 Gregory Kojadinovich II &nbsp;·&nbsp; Europa Waters LLC</p>
   </footer>
 
-  <script src="js/controllers/nav.js"></script>
-  <script src="js/controllers/space.js"></script>
+  <script src="../js/controllers/nav.js"></script>
+  <script src="../js/controllers/space.js"></script>
 
 </body>
 </html>

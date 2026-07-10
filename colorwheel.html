@@ -122,20 +122,15 @@
       display: block;
     }
 
-    .painting-placeholder {
-      width: 100%;
-      aspect-ratio: 4/3;
-      background: linear-gradient(135deg, #F0E6D0 0%, #C8AB82 50%, #8C6840 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      color: rgba(28,28,46,0.5);
+    .painting-caption {
+      padding: 0.75rem 1rem;
+      background: var(--dark);
       font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
     }
 
     /* ---- APP BADGE ---- */
@@ -187,12 +182,12 @@
   <main>
 
     <section class="hero">
-      <p class="hero-eyebrow">iOS App &nbsp;·&nbsp; Open Source &nbsp;·&nbsp; RYB Pigment Mixing</p>
+      <p class="hero-eyebrow">iOS App &nbsp;·&nbsp; Europa Waters LLC &nbsp;·&nbsp; Plein Air Color Theory</p>
       <h1>Color <em>Wheel</em></h1>
       <hr class="hero-divider">
       <p class="hero-tagline">
-        A painter's tool built on real subtractive RYB physics — not the RGB model used in screens.
-        Click any two segments to mix colors.
+        The field tool serious plein air painters have been waiting for — real subtractive RYB
+        pigment mixing in your pocket. See the landscape. Know the color. Paint with confidence.
       </p>
     </section>
 
@@ -237,31 +232,25 @@
         <div class="info-col">
 
           <div>
-            <p class="section-label">About the App</p>
-            <h2 class="section-title" style="font-size:1.6rem; margin-bottom:1rem;">Built for <em>Painters</em></h2>
+            <p class="section-label">Color Wheel — by Europa Waters LLC</p>
+            <h2 class="section-title" style="font-size:1.6rem; margin-bottom:1rem;">Your Eye. Your Palette. <em>Mastered.</em></h2>
             <p style="color:var(--mid); font-size:0.9rem; line-height:1.8;">
-              Traditional digital color tools use RGB or HSL — which don't reflect how real
-              paint behaves on a palette. This app models <strong>subtractive RYB pigment mixing</strong>,
-              the system taught in fine art and plein air painting. Designed so painters can
-              understand color relationships before they touch a brush.
+              Most digital color tools are built for screens, not studios. <strong>Color Wheel</strong>
+              is a plein air painting learning application engineered around
+              <strong>subtractive RYB pigment physics</strong> — the color system that governs
+              every stroke on a real canvas. Hold it up to the landscape, identify your hues,
+              and know exactly what to mix before your brush ever touches paint.
+              Built by Europa Waters LLC for artists who take the craft seriously.
             </p>
           </div>
 
-          <!-- Painting image — replace src with AI-generated plein air image -->
-          <div class="painting-frame">
-            <!-- TODO: Add AI-generated image of plein air painting with Color Wheel app
-                 Place file at: assets/images/plein-air-colorwheel.jpg
-                 Then replace the placeholder div below with:
-                 <img src="assets/images/plein-air-colorwheel.jpg" alt="Plein air painter using the Color Wheel app"> -->
-            <div class="painting-placeholder">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                <circle cx="8.5" cy="8.5" r="1.5"/>
-                <path d="M21 15l-5-5L5 21"/>
-              </svg>
-              <span>Plein Air Painting — Image Coming Soon</span>
-            </div>
-          </div>
+          <figure class="painting-frame">
+            <img
+              src="VeniceAI_ColorWheel_Git.png"
+              alt="Artist on location using the Color Wheel Plein Air Painting app by Europa Waters LLC to read and match landscape colors in the field"
+            >
+            <figcaption class="painting-caption">See the landscape &nbsp;·&nbsp; Know the color &nbsp;·&nbsp; Color Wheel by Europa Waters LLC</figcaption>
+          </figure>
 
           <!-- GitHub badge -->
           <a href="https://github.com/Greg-Kojadinovich" target="_blank" rel="noopener" class="app-badge">

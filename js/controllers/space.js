@@ -26,8 +26,8 @@
     });
   }
 
-  // All selectable buttons (planets + moons)
-  const allDestBtns = document.querySelectorAll('.dest-btn, .moon-btn');
+  // All selectable buttons (planets + moon overlays)
+  const allDestBtns = document.querySelectorAll('.dest-btn, .moon-overlay');
 
   allDestBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {

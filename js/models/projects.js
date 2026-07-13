@@ -8,7 +8,8 @@ const projects = [
     medal: "First Silver Medalist",
     description: "Engineered solution expansion pathways through seed diversity and entropy-weighted voting systems for final answer selection. Worked with NVIDIA H100 GPUs and OpenAI GPT-OSS-120B. Writing academic paper on the prompt engineering methodology.",
     link: "https://www.kaggle.com/gregkoja",
-    linkLabel: "View on Kaggle"
+    linkLabel: "View on Kaggle",
+    thumb: null
   },
   {
     title: "AIMO2 — DeepSeek R1 Fine-Tuning",
@@ -16,7 +17,8 @@ const projects = [
     medal: null,
     description: "Fine-tuned a distilled DeepSeek R1 LLM using four NVIDIA L4 GPUs with CUDA to answer AI Mathematical Olympiad problems. Performed prompt engineering and model building in HuggingFace.",
     link: "https://www.kaggle.com/code/gregkoja/prompt-engineering-deepseek-r1-aimo",
-    linkLabel: "View on Kaggle"
+    linkLabel: "View on Kaggle",
+    thumb: null
   },
   {
     title: "Color Wheel — iOS App",
@@ -24,7 +26,8 @@ const projects = [
     medal: null,
     description: "Free, open-source iOS app for painters learning color theory. Built with SwiftUI and powered by real subtractive RYB pigment mixing physics — not the RGB model taught in digital design. Try the interactive web version on the Color Wheel page.",
     link: "https://github.com/Greg-Kojadinovich",
-    linkLabel: "View on GitHub"
+    linkLabel: "View on GitHub",
+    thumb: null
   },
   {
     title: "Housing Price Predictions — XGBoost",
@@ -32,7 +35,8 @@ const projects = [
     medal: "Top 1% on Kaggle",
     description: "Predictive model for housing prices using a stacked regression approach with GPU-accelerated XGBoost training. Applied feature engineering and hyperparameter tuning to push into the top 1% of all submissions.",
     link: "https://www.kaggle.com/code/gregkoja/housing-price-predictions-with-xgboost-and-gpu",
-    linkLabel: "View on Kaggle"
+    linkLabel: "View on Kaggle",
+    thumb: "../assets/images/thumbnails/thumb-housing-xgboost.jpg"
   },
   {
     title: "Coffee Sales EDA",
@@ -40,7 +44,8 @@ const projects = [
     medal: null,
     description: "Exploratory data analysis on coffee sales data, visualizing pricing trends, seasonal variations, and consumer preferences using Python — Pandas, Matplotlib, and Seaborn.",
     link: "https://www.kaggle.com/code/gregkoja/coffee-sales-eda",
-    linkLabel: "View on Kaggle"
+    linkLabel: "View on Kaggle",
+    thumb: "../assets/images/thumbnails/thumb-coffee-eda.jpg"
   },
   {
     title: "Brasil Olist Commerce — Geospatial EDA",
@@ -48,7 +53,8 @@ const projects = [
     medal: null,
     description: "Applied geospatial analysis to Brazilian e-commerce transaction data, mapping customer distribution, seller locations, and delivery trends to uncover actionable business insights.",
     link: "https://www.kaggle.com/code/gregkoja/brasil-olist-commerce-dataset-geospatial-eda",
-    linkLabel: "View on Kaggle"
+    linkLabel: "View on Kaggle",
+    thumb: "../assets/images/thumbnails/thumb-brasil-olist.jpg"
   },
   {
     title: "Properties of Metals EDA",
@@ -56,7 +62,8 @@ const projects = [
     medal: null,
     description: "Exploratory data analysis on material properties of metals — examining relationships between hardness, tensile strength, density, and other physical characteristics using Python.",
     link: "https://www.kaggle.com/code/gregkoja/properties-of-metals-eda",
-    linkLabel: "View on Kaggle"
+    linkLabel: "View on Kaggle",
+    thumb: "../assets/images/thumbnails/thumb-metals-eda.jpg"
   }
 ];
 

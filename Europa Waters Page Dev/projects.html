@@ -81,7 +81,11 @@
       var medalHTML = p.medal
         ? '<div style="font-family:\'Helvetica Neue\',Arial,sans-serif;font-size:0.8rem;font-weight:700;color:var(--gold);margin-bottom:0.3rem;">' + p.medal + '</div>'
         : '';
+      var thumbHTML = p.thumb
+        ? '<img src="' + p.thumb + '" alt="' + p.title + ' chart" style="width:100%;height:160px;object-fit:cover;border-radius:6px;margin-bottom:0.75rem;display:block;">'
+        : '';
       card.innerHTML =
+        thumbHTML +
         '<span class="card-tag">' + p.tag + '</span>' +
         medalHTML +
         '<h3>' + p.title + '</h3>' +

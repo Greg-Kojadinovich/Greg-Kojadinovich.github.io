@@ -122,6 +122,38 @@
 
     #nasa-frame.hidden { display: none; }
 
+    /* Compact brand shown inside iframe state */
+    .nasa-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 0.25rem;
+    }
+
+    .logo-orbit-sm {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-orbit-sm .ring:nth-child(1) { width: 86px;  height: 86px; }
+    .logo-orbit-sm .ring:nth-child(2) { width: 112px; height: 112px; }
+    .logo-orbit-sm .ring:nth-child(3) { width: 60px;  height: 60px; }
+
+    .logo-orbit-sm .logo-name {
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+    }
+
+    .logo-orbit-sm .logo-sub {
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+    }
+
     #nasa-frame iframe {
       width: 100%;
       height: 72vh;
@@ -142,6 +174,165 @@
     @keyframes fade-scale-in {
       from { opacity: 0; transform: scale(0.97); }
       to   { opacity: 1; transform: scale(1); }
+    }
+
+    /* ---- DESTINATION BUTTONS ---- */
+    .destination-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .dest-btn {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 0.65rem 1.5rem;
+      border-radius: 12px;
+      border: none;
+      background: #2a2a3d;
+      color: #ffffff;
+      cursor: pointer;
+      box-shadow:
+        0 6px 0 #111122,
+        0 8px 14px rgba(0,0,0,0.35);
+      transform: translateY(0);
+      transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.15s;
+      user-select: none;
+    }
+
+    .dest-btn:hover {
+      background: #3a3a55;
+    }
+
+    .dest-btn:active,
+    .dest-btn.active {
+      background: var(--gold);
+      color: #fff;
+      box-shadow:
+        0 2px 0 #a8893a,
+        0 3px 6px rgba(0,0,0,0.25);
+      transform: translateY(4px);
+    }
+
+    /* ---- JUPITER IMAGE + MOONS SECTION ---- */
+    .jupiter-section {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .jupiter-section-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    /* ---- JUPITER IMAGE MAP ---- */
+    .jupiter-map {
+      position: relative;
+      max-width: 560px;
+      width: 100%;
+    }
+
+    .jupiter-img {
+      display: block;
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 4px 28px rgba(0,0,0,0.18);
+      -webkit-mask-image: radial-gradient(ellipse 82% 80% at 50% 50%, black 55%, transparent 100%);
+      mask-image: radial-gradient(ellipse 82% 80% at 50% 50%, black 55%, transparent 100%);
+    }
+
+    .moon-overlay {
+      position: absolute;
+      width: 11%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: transparent;
+      border: 2.5px solid transparent;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      transition: border-color 0.18s, background 0.18s, box-shadow 0.18s;
+      animation: moon-pulse 2.8s ease-in-out infinite;
+    }
+
+    @keyframes moon-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(212,175,55,0); }
+      50%       { box-shadow: 0 0 0 5px rgba(212,175,55,0.25); }
+    }
+
+    .moon-overlay:hover,
+    .moon-overlay.active {
+      border-color: var(--gold);
+      background: rgba(212,175,55,0.18);
+      animation: none;
+      box-shadow: 0 0 0 4px rgba(212,175,55,0.35);
+    }
+
+    .moon-label {
+      position: absolute;
+      bottom: -1.6rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dark);
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.15s;
+      pointer-events: none;
+    }
+
+    .moon-overlay:hover .moon-label,
+    .moon-overlay.active .moon-label {
+      opacity: 1;
+    }
+
+    /* ---- BUY SHIRT BUTTON ---- */
+    .btn-buy-shirt {
+      display: inline-block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      border: none;
+      background: var(--gold);
+      color: #fff;
+      cursor: pointer;
+      box-shadow:
+        0 6px 0 #a8893a,
+        0 8px 16px rgba(0,0,0,0.25);
+      transform: translateY(0);
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+      margin-top: 0.5rem;
+    }
+
+    .btn-buy-shirt:hover {
+      background: #c9a227;
+    }
+
+    .btn-buy-shirt:active {
+      transform: translateY(5px);
+      box-shadow:
+        0 1px 0 #a8893a,
+        0 2px 6px rgba(0,0,0,0.2);
     }
   </style>
 </head>
@@ -192,13 +383,64 @@
 
       <!-- STATE 2 — NASA IFRAME -->
       <div id="nasa-frame">
+
+        <!-- Persistent brand header -->
+        <div class="nasa-brand">
+          <div class="logo-orbit logo-orbit-sm">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="logo-text-wrap">
+              <div class="logo-name"><strong>Europa</strong> Waters</div>
+              <div class="logo-sub">LLC</div>
+            </div>
+          </div>
+        </div>
+
         <p class="nasa-label">NASA — Eyes on the Solar System</p>
+
+        <div class="destination-bar">
+          <button class="dest-btn active" data-dest="home">Solar System</button>
+          <button class="dest-btn" data-dest="mercury">Mercury</button>
+          <button class="dest-btn" data-dest="venus">Venus</button>
+          <button class="dest-btn" data-dest="earth">Earth</button>
+          <button class="dest-btn" data-dest="mars">Mars</button>
+          <button class="dest-btn" data-dest="jupiter">Jupiter</button>
+          <button class="dest-btn" data-dest="saturn">Saturn</button>
+          <button class="dest-btn" data-dest="uranus">Uranus</button>
+          <button class="dest-btn" data-dest="neptune">Neptune</button>
+        </div>
+
+        <!-- JUPITER & GALILEAN MOONS -->
+        <div class="jupiter-section">
+          <p class="jupiter-section-label">Galilean Moons — tap a moon to explore</p>
+          <div class="jupiter-map">
+            <img src="../assets/images/jupiterandmoons.jpg" alt="Jupiter and its Galilean Moons" class="jupiter-img" />
+            <!-- Callisto, Ganymede, [Jupiter], Europa, Io — L→R -->
+            <button class="moon-overlay" data-dest="callisto" aria-label="Callisto" style="left:6.7%;top:50%;"><span class="moon-label">Callisto</span></button>
+            <button class="moon-overlay" data-dest="ganymede" aria-label="Ganymede" style="left:19.7%;top:50%;"><span class="moon-label">Ganymede</span></button>
+            <button class="moon-overlay" data-dest="jupiter"  aria-label="Jupiter"  style="left:50%;top:50%;width:28%;"><span class="moon-label">Jupiter</span></button>
+            <button class="moon-overlay" data-dest="europa"   aria-label="Europa"   style="left:77.2%;top:50%;"><span class="moon-label">Europa</span></button>
+            <button class="moon-overlay" data-dest="io"       aria-label="Io"       style="left:93.6%;top:50%;"><span class="moon-label">Io</span></button>
+          </div>
+        </div>
+
+        <a href="https://www.europawaters.xyz/product-page/jupiter-and-galilean-moons-unisex-premium-sweatshirt"
+           target="_blank" rel="noopener"
+           class="btn-buy-shirt">Buy the Shirt ↗</a>
+
         <iframe
+          id="nasa-iframe"
           src="https://eyes.nasa.gov/apps/solar-system/#/home"
           title="NASA Eyes on the Solar System"
           allow="fullscreen"
           loading="lazy">
         </iframe>
+
+        <a href="https://www.europawaters.xyz/category/all-products"
+           target="_blank" rel="noopener"
+           class="btn-buy-shirt">Shop ↗</a>
+
         <button id="collapse-nasa" class="btn btn-outline">← Back to Europa Waters</button>
       </div>
 

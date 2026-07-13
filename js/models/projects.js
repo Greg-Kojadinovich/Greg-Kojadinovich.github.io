@@ -9,7 +9,7 @@ const projects = [
     description: "Engineered solution expansion pathways through seed diversity and entropy-weighted voting systems for final answer selection. Worked with NVIDIA H100 GPUs and OpenAI GPT-OSS-120B. Writing academic paper on the prompt engineering methodology.",
     link: "https://www.kaggle.com/gregkoja",
     linkLabel: "View on Kaggle",
-    thumb: null
+    thumb: "../assets/images/thumbnails/thumb-aimo3-placement.jpg"
   },
   {
     title: "AIMO2 — DeepSeek R1 Fine-Tuning",
@@ -18,7 +18,7 @@ const projects = [
     description: "Fine-tuned a distilled DeepSeek R1 LLM using four NVIDIA L4 GPUs with CUDA to answer AI Mathematical Olympiad problems. Performed prompt engineering and model building in HuggingFace.",
     link: "https://www.kaggle.com/code/gregkoja/prompt-engineering-deepseek-r1-aimo",
     linkLabel: "View on Kaggle",
-    thumb: null
+    thumb: "../assets/images/thumbnails/thumb-aimo2-inference.jpg"
   },
   {
     title: "Color Wheel — iOS App",

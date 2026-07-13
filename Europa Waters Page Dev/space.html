@@ -268,6 +268,40 @@
     .moon-overlay.active .moon-label {
       opacity: 1;
     }
+
+    /* ---- BUY SHIRT BUTTON ---- */
+    .btn-buy-shirt {
+      display: inline-block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      border: none;
+      background: var(--gold);
+      color: #fff;
+      cursor: pointer;
+      box-shadow:
+        0 6px 0 #a8893a,
+        0 8px 16px rgba(0,0,0,0.25);
+      transform: translateY(0);
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+      margin-top: 0.5rem;
+    }
+
+    .btn-buy-shirt:hover {
+      background: #c9a227;
+    }
+
+    .btn-buy-shirt:active {
+      transform: translateY(5px);
+      box-shadow:
+        0 1px 0 #a8893a,
+        0 2px 6px rgba(0,0,0,0.2);
+    }
   </style>
 </head>
 <body>
@@ -331,14 +365,6 @@
           <button class="dest-btn" data-dest="neptune">Neptune</button>
         </div>
 
-        <iframe
-          id="nasa-iframe"
-          src="https://eyes.nasa.gov/apps/solar-system/#/home"
-          title="NASA Eyes on the Solar System"
-          allow="fullscreen"
-          loading="lazy">
-        </iframe>
-
         <!-- JUPITER & GALILEAN MOONS -->
         <div class="jupiter-section">
           <p class="jupiter-section-label">Galilean Moons — tap a moon to explore</p>
@@ -352,6 +378,18 @@
             <button class="moon-overlay" data-dest="io"       aria-label="Io"       style="left:93.6%;top:50%;"><span class="moon-label">Io</span></button>
           </div>
         </div>
+
+        <iframe
+          id="nasa-iframe"
+          src="https://eyes.nasa.gov/apps/solar-system/#/home"
+          title="NASA Eyes on the Solar System"
+          allow="fullscreen"
+          loading="lazy">
+        </iframe>
+
+        <a href="https://www.europawaters.xyz/product-page/jupiter-and-galilean-moons-unisex-premium-sweatshirt"
+           target="_blank" rel="noopener"
+           class="btn-buy-shirt">Buy the Shirt ↗</a>
 
         <button id="collapse-nasa" class="btn btn-outline">← Back to Europa Waters</button>
       </div>

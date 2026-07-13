@@ -26,11 +26,13 @@
     });
   }
 
-  // Destination selector buttons
-  const destButtons = document.querySelectorAll('.dest-btn');
-  destButtons.forEach(function (btn) {
+  // All selectable buttons (planets + moons)
+  const allDestBtns = document.querySelectorAll('.dest-btn, .moon-btn');
+
+  allDestBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
-      destButtons.forEach(function (b) { b.classList.remove('active'); });
+      // Clear active from every button
+      allDestBtns.forEach(function (b) { b.classList.remove('active'); });
       btn.classList.add('active');
       if (nasaIframe) {
         nasaIframe.src = BASE_URL + btn.dataset.dest;

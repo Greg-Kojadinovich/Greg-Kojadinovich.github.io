@@ -156,25 +156,25 @@
     .dest-btn {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 0.82rem;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.07em;
       text-transform: uppercase;
-      padding: 0.6rem 1.4rem;
+      padding: 0.65rem 1.5rem;
       border-radius: 12px;
       border: none;
-      background: #f0ede6;
-      color: var(--dark);
+      background: #2a2a3d;
+      color: #ffffff;
       cursor: pointer;
       box-shadow:
-        0 6px 0 #c8b98a,
-        0 8px 12px rgba(0,0,0,0.18);
+        0 6px 0 #111122,
+        0 8px 14px rgba(0,0,0,0.35);
       transform: translateY(0);
       transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.15s;
       user-select: none;
     }
 
     .dest-btn:hover {
-      background: #fdf6e3;
+      background: #3a3a55;
     }
 
     .dest-btn:active,
@@ -183,7 +183,66 @@
       color: #fff;
       box-shadow:
         0 2px 0 #a8893a,
-        0 3px 6px rgba(0,0,0,0.18);
+        0 3px 6px rgba(0,0,0,0.25);
+      transform: translateY(4px);
+    }
+
+    /* ---- JUPITER IMAGE + MOONS SECTION ---- */
+    .jupiter-section {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .jupiter-section-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    .jupiter-img {
+      max-width: 480px;
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 4px 28px rgba(0,0,0,0.18);
+    }
+
+    .moon-btn {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 0.65rem 1.5rem;
+      border-radius: 12px;
+      border: none;
+      background: #1c2e1c;
+      color: #a8e6a8;
+      cursor: pointer;
+      box-shadow:
+        0 6px 0 #0a150a,
+        0 8px 14px rgba(0,0,0,0.35);
+      transform: translateY(0);
+      transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.15s;
+      user-select: none;
+    }
+
+    .moon-btn:hover {
+      background: #253825;
+    }
+
+    .moon-btn:active,
+    .moon-btn.active {
+      background: #4caf50;
+      color: #fff;
+      box-shadow:
+        0 2px 0 #2d6b30,
+        0 3px 6px rgba(0,0,0,0.25);
       transform: translateY(4px);
     }
   </style>
@@ -247,12 +306,24 @@
 
         <div class="destination-bar">
           <button class="dest-btn active" data-dest="home">Solar System</button>
-          <button class="dest-btn" data-dest="jupiter">Jupiter</button>
-          <button class="dest-btn" data-dest="europa">Europa</button>
-          <button class="dest-btn" data-dest="saturn">Saturn</button>
-          <button class="dest-btn" data-dest="mars">Mars</button>
+          <button class="dest-btn" data-dest="mercury">Mercury</button>
+          <button class="dest-btn" data-dest="venus">Venus</button>
           <button class="dest-btn" data-dest="earth">Earth</button>
-          <button class="dest-btn" data-dest="moon">Moon</button>
+          <button class="dest-btn" data-dest="mars">Mars</button>
+          <button class="dest-btn" data-dest="jupiter">Jupiter</button>
+          <button class="dest-btn" data-dest="saturn">Saturn</button>
+        </div>
+
+        <!-- JUPITER & GALILEAN MOONS -->
+        <div class="jupiter-section">
+          <p class="jupiter-section-label">Galilean Moons of Jupiter</p>
+          <img src="../assets/images/jupiterandmoons.jpg" alt="Jupiter and its Galilean Moons" class="jupiter-img" />
+          <div class="destination-bar">
+            <button class="moon-btn" data-dest="io">Io</button>
+            <button class="moon-btn" data-dest="europa">Europa</button>
+            <button class="moon-btn" data-dest="ganymede">Ganymede</button>
+            <button class="moon-btn" data-dest="callisto">Callisto</button>
+          </div>
         </div>
 
         <button id="collapse-nasa" class="btn btn-outline">← Back to Europa Waters</button>

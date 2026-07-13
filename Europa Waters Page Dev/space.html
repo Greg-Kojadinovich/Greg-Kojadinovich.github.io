@@ -143,6 +143,36 @@
       from { opacity: 0; transform: scale(0.97); }
       to   { opacity: 1; transform: scale(1); }
     }
+
+    /* ---- DESTINATION BUTTONS ---- */
+    .destination-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .dest-btn {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      border: 1.5px solid var(--gold);
+      background: transparent;
+      color: var(--dark);
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s;
+    }
+
+    .dest-btn:hover,
+    .dest-btn.active {
+      background: var(--gold);
+      color: #fff;
+    }
   </style>
 </head>
 <body>
@@ -193,7 +223,19 @@
       <!-- STATE 2 — NASA IFRAME -->
       <div id="nasa-frame">
         <p class="nasa-label">NASA — Eyes on the Solar System</p>
+
+        <div class="destination-bar">
+          <button class="dest-btn active" data-dest="home">Solar System</button>
+          <button class="dest-btn" data-dest="jupiter">Jupiter</button>
+          <button class="dest-btn" data-dest="europa">Europa</button>
+          <button class="dest-btn" data-dest="saturn">Saturn</button>
+          <button class="dest-btn" data-dest="mars">Mars</button>
+          <button class="dest-btn" data-dest="earth">Earth</button>
+          <button class="dest-btn" data-dest="moon">Moon</button>
+        </div>
+
         <iframe
+          id="nasa-iframe"
           src="https://eyes.nasa.gov/apps/solar-system/#/home"
           title="NASA Eyes on the Solar System"
           allow="fullscreen"

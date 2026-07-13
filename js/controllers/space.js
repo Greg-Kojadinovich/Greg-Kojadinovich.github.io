@@ -4,8 +4,11 @@
 (function () {
   const logoWrap    = document.getElementById('logo-wrap');
   const nasaFrame   = document.getElementById('nasa-frame');
+  const nasaIframe  = document.getElementById('nasa-iframe');
   const expandBtn   = document.getElementById('expand-nasa');
   const collapseBtn = document.getElementById('collapse-nasa');
+
+  const BASE_URL = 'https://eyes.nasa.gov/apps/solar-system/#/';
 
   if (!logoWrap || !nasaFrame || !expandBtn) return;
 
@@ -22,4 +25,16 @@
       logoWrap.classList.remove('hidden');
     });
   }
+
+  // Destination selector buttons
+  const destButtons = document.querySelectorAll('.dest-btn');
+  destButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      destButtons.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      if (nasaIframe) {
+        nasaIframe.src = BASE_URL + btn.dataset.dest;
+      }
+    });
+  });
 })();

@@ -217,6 +217,8 @@
       width: 100%;
       border-radius: 16px;
       box-shadow: 0 4px 28px rgba(0,0,0,0.18);
+      -webkit-mask-image: radial-gradient(ellipse 82% 80% at 50% 50%, black 55%, transparent 100%);
+      mask-image: radial-gradient(ellipse 82% 80% at 50% 50%, black 55%, transparent 100%);
     }
 
     .moon-overlay {
@@ -341,7 +343,7 @@
         <div class="jupiter-section">
           <p class="jupiter-section-label">Galilean Moons — tap a moon to explore</p>
           <div class="jupiter-map">
-            <img src="../assets/images/jupiterandmoons.png" alt="Jupiter and its Galilean Moons" class="jupiter-img" />
+            <img src="../assets/images/jupiterandmoons.jpg" alt="Jupiter and its Galilean Moons" class="jupiter-img" />
             <!-- Callisto, Ganymede, [Jupiter], Europa, Io — L→R -->
             <button class="moon-overlay" data-dest="callisto" aria-label="Callisto" style="left:6.7%;top:50%;"><span class="moon-label">Callisto</span></button>
             <button class="moon-overlay" data-dest="ganymede" aria-label="Ganymede" style="left:19.7%;top:50%;"><span class="moon-label">Ganymede</span></button>

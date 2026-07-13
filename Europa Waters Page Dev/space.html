@@ -122,6 +122,38 @@
 
     #nasa-frame.hidden { display: none; }
 
+    /* Compact brand shown inside iframe state */
+    .nasa-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 0.25rem;
+    }
+
+    .logo-orbit-sm {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-orbit-sm .ring:nth-child(1) { width: 86px;  height: 86px; }
+    .logo-orbit-sm .ring:nth-child(2) { width: 112px; height: 112px; }
+    .logo-orbit-sm .ring:nth-child(3) { width: 60px;  height: 60px; }
+
+    .logo-orbit-sm .logo-name {
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+    }
+
+    .logo-orbit-sm .logo-sub {
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+    }
+
     #nasa-frame iframe {
       width: 100%;
       height: 72vh;
@@ -351,6 +383,20 @@
 
       <!-- STATE 2 — NASA IFRAME -->
       <div id="nasa-frame">
+
+        <!-- Persistent brand header -->
+        <div class="nasa-brand">
+          <div class="logo-orbit logo-orbit-sm">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="logo-text-wrap">
+              <div class="logo-name"><strong>Europa</strong> Waters</div>
+              <div class="logo-sub">LLC</div>
+            </div>
+          </div>
+        </div>
+
         <p class="nasa-label">NASA — Eyes on the Solar System</p>
 
         <div class="destination-bar">

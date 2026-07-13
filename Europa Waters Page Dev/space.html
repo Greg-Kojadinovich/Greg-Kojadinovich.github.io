@@ -317,14 +317,6 @@
       <div id="nasa-frame">
         <p class="nasa-label">NASA — Eyes on the Solar System</p>
 
-        <iframe
-          id="nasa-iframe"
-          src="https://eyes.nasa.gov/apps/solar-system/#/home"
-          title="NASA Eyes on the Solar System"
-          allow="fullscreen"
-          loading="lazy">
-        </iframe>
-
         <div class="destination-bar">
           <button class="dest-btn active" data-dest="home">Solar System</button>
           <button class="dest-btn" data-dest="mercury">Mercury</button>
@@ -333,16 +325,27 @@
           <button class="dest-btn" data-dest="mars">Mars</button>
           <button class="dest-btn" data-dest="jupiter">Jupiter</button>
           <button class="dest-btn" data-dest="saturn">Saturn</button>
+          <button class="dest-btn" data-dest="uranus">Uranus</button>
+          <button class="dest-btn" data-dest="neptune">Neptune</button>
         </div>
+
+        <iframe
+          id="nasa-iframe"
+          src="https://eyes.nasa.gov/apps/solar-system/#/home"
+          title="NASA Eyes on the Solar System"
+          allow="fullscreen"
+          loading="lazy">
+        </iframe>
 
         <!-- JUPITER & GALILEAN MOONS -->
         <div class="jupiter-section">
           <p class="jupiter-section-label">Galilean Moons — tap a moon to explore</p>
           <div class="jupiter-map">
-            <img src="../assets/images/jupiterandmoons.jpg" alt="Jupiter and its Galilean Moons" class="jupiter-img" />
-            <!-- Positions measured from image: Callisto, Ganymede, Europa, Io L→R -->
+            <img src="../assets/images/jupiterandmoons.png" alt="Jupiter and its Galilean Moons" class="jupiter-img" />
+            <!-- Callisto, Ganymede, [Jupiter], Europa, Io — L→R -->
             <button class="moon-overlay" data-dest="callisto" aria-label="Callisto" style="left:6.7%;top:50%;"><span class="moon-label">Callisto</span></button>
             <button class="moon-overlay" data-dest="ganymede" aria-label="Ganymede" style="left:19.7%;top:50%;"><span class="moon-label">Ganymede</span></button>
+            <button class="moon-overlay" data-dest="jupiter"  aria-label="Jupiter"  style="left:50%;top:50%;width:28%;"><span class="moon-label">Jupiter</span></button>
             <button class="moon-overlay" data-dest="europa"   aria-label="Europa"   style="left:77.2%;top:50%;"><span class="moon-label">Europa</span></button>
             <button class="moon-overlay" data-dest="io"       aria-label="Io"       style="left:93.6%;top:50%;"><span class="moon-label">Io</span></button>
           </div>

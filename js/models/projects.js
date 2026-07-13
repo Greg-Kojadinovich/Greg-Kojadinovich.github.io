@@ -39,11 +39,7 @@ const projects = [
     tag: "Data Science / Python",
     medal: null,
     description: "Exploratory data analysis on coffee sales data, visualizing pricing trends, seasonal variations, and consumer preferences using Python — Pandas, Matplotlib, and Seaborn.",
-    link: "https://www.kaggle.com/gregkoja",
-    linkLabel: "View on Kaggle"
-  },
-  {
-    title: "Brasil Olist Commerce — Geospatial EDA",
+    link: "https://www.kaggle.com/code/gregkoja/coffee-sales-eda", — Geospatial EDA",
     tag: "Geospatial Analysis",
     medal: null,
     description: "Applied geospatial analysis to Brazilian e-commerce transaction data, mapping customer distribution, seller locations, and delivery trends to uncover actionable business insights.",

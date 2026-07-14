@@ -13,14 +13,20 @@
 
   <!-- NAV -->
   <nav class="nav">
-    <a class="nav-brand" href="home.html">
+    <a class="nav-brand" href="index.html">
       <span class="nav-logo-dot"></span>
       <span class="nav-brand-text">EUROPA WATERS LLC</span>
     </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-collapse">
     <ul class="nav-links">
-      <li><a href="home.html">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="https://www.europawaters.xyz" target="_blank" rel="noopener">Europa Waters ↗</a></li>
-      <li><a href="index.html">Portfolio</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="projects.html">Artificial Intelligence</a></li>
       <li><a href="software.html">Software</a></li>
       <li><a href="services_gk.html" class="nav-active">Services</a></li>
@@ -28,6 +34,7 @@
       <li><a href="colorwheel.html">Color Wheel</a></li>
     </ul>
     <a href="#contact" class="btn btn-primary btn-sm">Get in Touch</a>
+    </div>
   </nav>
 
   <!-- ─── HERO ─── -->
@@ -371,7 +378,7 @@
       <div class="footer-col">
         <p class="footer-col-title">Navigate</p>
         <ul class="footer-nav-list">
-          <li><a href="home.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="https://www.europawaters.xyz" target="_blank" rel="noopener">Europa Waters ↗</a></li>
           <li><a href="projects.html">Projects</a></li>
           <li><a href="#">Services</a></li>
@@ -396,5 +403,6 @@
     </div>
   </footer>
 
+  <script src="js/controllers/nav.js"></script>
 </body>
 </html>

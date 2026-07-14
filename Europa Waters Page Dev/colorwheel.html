@@ -10,6 +10,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
+    /* ---- FLOWER WATERCOLOR BACKGROUND ---- */
+    /* screen blend: black pixels vanish, dark-gray flower ghosting remains */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image: url('../assets/images/europa_flower_watercolor.png');
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+      mix-blend-mode: screen;
+      opacity: 0.42;
+      pointer-events: none;
+    }
+
+    body > * { position: relative; z-index: 1; }
+
     /* ---- LAYOUT ---- */
     .cw-layout {
       display: grid;
@@ -253,7 +271,7 @@
 
           <figure class="painting-frame">
             <img
-              src="../assets/images/VeniceAI_PleinAirPainting.png"
+              src="../assets/images/Apple_EuropaWaters_PleinColorWheel.png"
               alt="Artist on location using the Color Wheel Plein Air Painting app by Europa Waters LLC to read and match landscape colors in the field"
             >
             <figcaption class="painting-caption">See the landscape &nbsp;·&nbsp; Know the color &nbsp;·&nbsp; Color Wheel by Europa Waters LLC</figcaption>

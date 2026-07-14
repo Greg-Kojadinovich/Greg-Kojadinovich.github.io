@@ -27,7 +27,8 @@ const projects = [
     description: "Free, open-source iOS app for painters learning color theory. Built with SwiftUI and powered by real subtractive RYB pigment mixing physics — not the RGB model taught in digital design. Try the interactive web version on the Color Wheel page.",
     link: "https://github.com/Greg-Kojadinovich",
     linkLabel: "View on GitHub",
-    thumb: null
+    thumb: "../assets/images/AppIcon.png",
+    thumbIcon: true
   },
   {
     title: "Housing Price Predictions — XGBoost",

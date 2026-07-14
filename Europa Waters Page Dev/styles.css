@@ -478,8 +478,10 @@ body {
 }
 
 .color-wheel-icon {
-  background: linear-gradient(135deg, rgba(74, 159, 226, 0.2), rgba(98, 224, 212, 0.2));
-  border: 1px solid rgba(74, 159, 226, 0.3);
+  background: none;
+  border: none;
+  object-fit: cover;
+  padding: 0;
 }
 
 .chess-icon {

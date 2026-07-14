@@ -76,14 +76,20 @@
 
   // ---- Interaction helpers -----------------------------------
 
+  // Resolve the correct clientX/Y from mouse or touch events.
+  // touchend clears e.touches, so use e.changedTouches for touch events.
+  function getClient(e) {
+    var t = (e.changedTouches && e.changedTouches[0]) || (e.touches && e.touches[0]);
+    return t ? { x: t.clientX, y: t.clientY } : { x: e.clientX, y: e.clientY };
+  }
+
   function getDistFromCenter(e) {
     var rect   = canvas.getBoundingClientRect();
     var scaleX = canvas.width  / rect.width;
     var scaleY = canvas.height / rect.height;
-    var clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    var clientY = e.touches ? e.touches[0].clientY : e.clientY;
-    var dx = (clientX - rect.left) * scaleX - cx;
-    var dy = (clientY - rect.top)  * scaleY - cy;
+    var c  = getClient(e);
+    var dx = (c.x - rect.left) * scaleX - cx;
+    var dy = (c.y - rect.top)  * scaleY - cy;
     return Math.sqrt(dx * dx + dy * dy);
   }
 
@@ -91,10 +97,9 @@
     var rect   = canvas.getBoundingClientRect();
     var scaleX = canvas.width  / rect.width;
     var scaleY = canvas.height / rect.height;
-    var clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    var clientY = e.touches ? e.touches[0].clientY : e.clientY;
-    var dx = (clientX - rect.left) * scaleX - cx;
-    var dy = (clientY - rect.top)  * scaleY - cy;
+    var c  = getClient(e);
+    var dx = (c.x - rect.left) * scaleX - cx;
+    var dy = (c.y - rect.top)  * scaleY - cy;
     var angle = Math.atan2(dy, dx) * (180 / Math.PI) + 90; // 0° = top
     return ((angle % 360) + 360) % 360;
   }
@@ -173,8 +178,9 @@
     updateSwatches();
   }
 
-  canvas.addEventListener('click',     handlePick);
-  canvas.addEventListener('touchend',  handlePick, { passive: false });
+  canvas.addEventListener('click',      handlePick);
+  canvas.addEventListener('touchstart', function (e) { e.preventDefault(); }, { passive: false });
+  canvas.addEventListener('touchend',   handlePick, { passive: false });
 
   // ---- Init --------------------------------------------------
   drawWheel();

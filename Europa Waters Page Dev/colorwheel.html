@@ -10,6 +10,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
+    /* ---- FLOWER WATERCOLOR BACKGROUND ---- */
+    /* screen blend: black pixels vanish, dark-gray flower ghosting remains */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image: url('../assets/images/europa_flower_watercolor.png');
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+      mix-blend-mode: screen;
+      opacity: 0.72;
+      pointer-events: none;
+    }
+
+    body > * { position: relative; z-index: 1; }
+
     /* ---- LAYOUT ---- */
     .cw-layout {
       display: grid;

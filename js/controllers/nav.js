@@ -2,15 +2,15 @@
 // Controller — Navigation: mobile toggle + active link highlight
 
 (function () {
-  const toggle  = document.querySelector('.nav-toggle');
-  const links   = document.querySelector('.nav-links');
+  const toggle   = document.querySelector('.nav-toggle');
+  const collapse = document.querySelector('.nav-collapse');
   const allLinks = document.querySelectorAll('.nav-links a');
 
   // Mobile hamburger toggle
-  if (toggle && links) {
+  if (toggle && collapse) {
     toggle.addEventListener('click', function () {
-      links.classList.toggle('open');
-      const expanded = links.classList.contains('open');
+      collapse.classList.toggle('open');
+      const expanded = collapse.classList.contains('open');
       toggle.setAttribute('aria-expanded', String(expanded));
     });
   }
@@ -20,7 +20,7 @@
   allLinks.forEach(function (link) {
     const href = link.getAttribute('href');
     if (href === page || (page === '' && href === 'index.html')) {
-      link.classList.add('active');
+      link.classList.add('nav-active');
     }
   });
 })();

@@ -182,45 +182,19 @@
           </p>
 
           <video
-            id="knights-tour-video"
             src="../assets/images/knights_tour_12_1_0.mp4"
-            muted playsinline
+            poster="../assets/images/knights_tour_poster.jpg"
+            controls
+            preload="metadata"
+            playsinline
             style="width:65%; border-radius:var(--radius); margin:1rem auto; display:block;"
             aria-label="Closed Knight's Tour animation on a 12x12 board"
           ></video>
-          <script>
-            (function () {
-              var v = document.getElementById('knights-tour-video');
-              var reversing = false;
-              var rafId;
-
-              function stepBack() {
-                if (v.currentTime <= 0) {
-                  reversing = false;
-                  v.play();
-                  return;
-                }
-                v.currentTime = Math.max(0, v.currentTime - 0.033); // ~30fps step back
-                rafId = requestAnimationFrame(stepBack);
-              }
-
-              v.addEventListener('ended', function () {
-                reversing = true;
-                cancelAnimationFrame(rafId);
-                stepBack();
-              });
-
-              v.play();
-            })();
-          </script>
 
           <div class="coming-soon-bar">
             <div class="coming-soon-fill"></div>
           </div>
           <p class="coming-soon-label">In Development</p>
-          <div class="project-links" style="margin-top:1rem;">
-            <a href="chess-preview.html" class="btn btn-outline">Preview ↗</a>
-          </div>
         </div>
       </div>
 

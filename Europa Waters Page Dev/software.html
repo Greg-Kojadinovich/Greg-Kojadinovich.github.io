@@ -177,16 +177,42 @@
             </div>
           </div>
           <p class="project-desc">
-            A chess application currently in development. Europa Waters is completing Mathematical Exploration Research of The King's Tour. Hamiltonian Cycles on the King Graph.
-            Please follow the horse in the closed Knight's Tour below.
+            A chess application currently in development. Europa Waters is completing Mathematical Exploration Research of The King's Tour - Hamiltonian Cycles on the King Graph.
+            Please follow the horse in the closed Knight's Tour below for what's to come, and reach out if you're interested in collaborating or want to be notified when it launches.
           </p>
 
           <video
+            id="knights-tour-video"
             src="../assets/images/knights_tour_12_1_0.mp4"
-            autoplay loop muted playsinline
-            style="width:100%; border-radius:var(--radius); margin:1rem 0; display:block;"
+            muted playsinline
+            style="width:65%; border-radius:var(--radius); margin:1rem auto; display:block;"
             aria-label="Closed Knight's Tour animation on a 12x12 board"
           ></video>
+          <script>
+            (function () {
+              var v = document.getElementById('knights-tour-video');
+              var reversing = false;
+              var rafId;
+
+              function stepBack() {
+                if (v.currentTime <= 0) {
+                  reversing = false;
+                  v.play();
+                  return;
+                }
+                v.currentTime = Math.max(0, v.currentTime - 0.033); // ~30fps step back
+                rafId = requestAnimationFrame(stepBack);
+              }
+
+              v.addEventListener('ended', function () {
+                reversing = true;
+                cancelAnimationFrame(rafId);
+                stepBack();
+              });
+
+              v.play();
+            })();
+          </script>
 
           <div class="coming-soon-bar">
             <div class="coming-soon-fill"></div>

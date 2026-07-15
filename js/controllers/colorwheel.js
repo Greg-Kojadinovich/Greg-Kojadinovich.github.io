@@ -6,11 +6,20 @@
   var canvas = document.getElementById('wheel-canvas');
   if (!canvas) return;
 
-  var ctx  = canvas.getContext('2d');
-  var SIZE = canvas.width;   // 400
-  var cx   = SIZE / 2;
-  var cy   = SIZE / 2;
-  var R    = SIZE / 2 - 10;  // outer radius
+  // High-DPI (Retina) fix — scale canvas buffer by devicePixelRatio so it
+  // renders crisp on 2×/3× screens (iPhone, MacBook Retina, etc.)
+  var dpr  = window.devicePixelRatio || 1;
+  var SIZE = 400; // logical CSS pixels
+  canvas.width        = SIZE * dpr;
+  canvas.height       = SIZE * dpr;
+  canvas.style.width  = SIZE + 'px';
+  canvas.style.height = SIZE + 'px';
+
+  var ctx   = canvas.getContext('2d');
+  ctx.scale(dpr, dpr); // all drawing coordinates stay in logical pixels
+  var cx    = SIZE / 2;
+  var cy    = SIZE / 2;
+  var R     = SIZE / 2 - 10; // outer radius
   var INNER = R * 0.3;        // inner white circle radius
 
   // 12-hue RYB wheel starting at Red (top), going clockwise

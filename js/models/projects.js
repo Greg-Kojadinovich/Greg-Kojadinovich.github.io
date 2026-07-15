@@ -25,6 +25,8 @@ const projects = [
     tag: "iOS / SwiftUI",
     medal: null,
     description: "Free iOS app for painters learning color theory. Built with SwiftUI and powered by real subtractive RYB pigment mixing physics — not the RGB model taught in digital design. Try the interactive web version on the Color Wheel page.",
+    // TODO: replace with full App Store URL once you have your numeric app ID:
+    // https://apps.apple.com/us/app/color-wheel/id<YOUR_APP_ID>
     link: "https://apps.apple.com/app/colorwheel",
     linkLabel: "Download on App Store",
     thumb: "assets/images/AppIcon.png",

@@ -69,8 +69,10 @@ const projects = [
 ];
 
 const certificates = [
+  "NCEES FE — Chemical Engineering",
   "Stanford Machine Learning Specialization",
   "IBM Professional Data Scientist",
   "ML-Ops Specialization",
-  "iOS Swift Development"
+  "iOS Swift Development",
+  "Wild Well Control Certificate"
 ];

@@ -69,10 +69,10 @@ const projects = [
 ];
 
 const certificates = [
-  "NCEES FE — Chemical Engineering",
-  "Stanford Machine Learning Specialization",
-  "IBM Professional Data Scientist",
-  "ML-Ops Specialization",
-  "iOS Swift Development",
+  "FE Exam — NCEES (Apr 2024)",
+  "Machine Learning Engineering for Production (MLOps) — Coursera (May 2024)",
+  "iOS & Swift — Complete iOS App Development Bootcamp (Jun 2026)",
+  "Machine Learning — Coursera (Mar 2022)",
+  "Data Science Professional Certificate — Coursera (Mar 2022)",
   "Wild Well Control Certificate"
 ];

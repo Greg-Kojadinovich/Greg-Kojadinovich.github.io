@@ -20,3 +20,6 @@ npm-debug.log*
 # Environment files
 .env
 .env.local
+
+# Internal pricing documents
+assets/Europa_Waters_Service_Pricing.xlsx

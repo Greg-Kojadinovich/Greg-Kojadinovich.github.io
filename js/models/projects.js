@@ -69,9 +69,9 @@ const projects = [
 ];
 
 const certificates = [
-  "NCEES FE — Chemical Engineering",
-  "Stanford Machine Learning Specialization",
-  "IBM Professional Data Scientist",
-  "ML-Ops Specialization",
-  "iOS Swift Development"
+  { name: "NCEES FE — Chemical Engineering",        url: "https://www.credly.com/badges/a7db0e7f-9d4e-4605-b07d-e1d8606dbcd9" },
+  { name: "Stanford Machine Learning Specialization", url: "assets/images/cert_stanford_ml.png", modal: true },
+  { name: "IBM Professional Data Scientist",          url: "https://www.credly.com/badges/c25557fe-29d6-4f56-9a79-e84245ab83d9" },
+  { name: "ML-Ops Specialization",                    url: "assets/images/cert_mlops.png", modal: true },
+  { name: "iOS Swift Development",                    url: "https://www.udemy.com/certificate/UC-40092c76-1a66-42b5-9da1-2764dbfbac5f/" }
 ];

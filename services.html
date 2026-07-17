@@ -22,17 +22,30 @@
       position: relative;
     }
     .contact-form-doc::before {
-      content: 'PROJECT INQUIRY';
-      display: block;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.64rem;
-      font-weight: 700;
-      letter-spacing: 0.32em;
-      color: rgba(212,175,55,0.75);
+      content: none;
+    }
+    .form-doc-header {
       text-align: center;
       padding-bottom: 1rem;
       border-bottom: 1px solid rgba(212,175,55,0.25);
       margin-bottom: 1.5rem;
+    }
+    .form-doc-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: rgba(212,175,55,0.9);
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+    .form-doc-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      color: rgba(212,175,55,0.55);
+      text-transform: uppercase;
     }
     /* ── TAN INPUTS ── */
     .contact-form-doc input[type="text"],
@@ -80,7 +93,8 @@
       border-color: rgba(212,175,55,0.55);
       color: #2a2418;
     }
-    .service-tile.selected {
+    .service-tile.selected,
+    .service-tile.selected:hover {
       border-color: #d4af37;
       background: rgba(212,175,55,0.14);
       color: #b8860b;
@@ -363,6 +377,10 @@
           </div>
         <div class="contact-right">
           <div class="contact-form-doc">
+          <div class="form-doc-header">
+            <div class="form-doc-brand">Europa Waters</div>
+            <div class="form-doc-label">Project Inquiry</div>
+          </div>
           <form class="contact-form" id="contact-form" novalidate>
             <div class="form-group">
               <label for="cf-name">Your Name</label>

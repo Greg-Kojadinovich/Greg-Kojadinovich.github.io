@@ -11,6 +11,7 @@
     var name    = document.getElementById('cf-name').value.trim();
     var company = document.getElementById('cf-company').value.trim();
     var email   = document.getElementById('cf-email').value.trim();
+    var phone   = (document.getElementById('cf-phone') || {}).value || '';
     var service = document.getElementById('cf-service').value;
     var desc    = document.getElementById('cf-desc').value.trim();
 
@@ -23,9 +24,10 @@
 
     var subject = 'Project Inquiry — ' + (service || 'General') + ' | ' + name;
     var body =
-      'Name: '    + name                       + '\n' +
-      'Company: ' + (company || 'N/A')         + '\n' +
-      'Email: '   + email                      + '\n' +
+      'Name: '    + name                         + '\n' +
+      'Company: ' + (company || 'N/A')           + '\n' +
+      'Email: '   + email                        + '\n' +
+      'Phone: '   + (phone.trim() || 'N/A')      + '\n' +
       'Service: ' + (service || 'Not specified') + '\n\n' +
       'Project Description:\n' + (desc || 'Not provided');
 

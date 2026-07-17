@@ -34,12 +34,63 @@
       color: var(--text-muted);
       padding: 0.85rem;
       line-height: 1.45;
+      text-decoration: none;
+      cursor: pointer;
       transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
     }
     .cert-patch:hover {
       border-color: var(--accent);
       color: var(--text);
       box-shadow: 0 4px 16px rgba(74, 159, 226, 0.14);
+    }
+    /* PDF Modal */
+    #cert-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.78);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    #cert-modal.open { display: flex; }
+    .cert-modal-inner {
+      position: relative;
+      width: 100%;
+      max-width: 860px;
+      max-height: 90vh;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cert-modal-inner img {
+      width: 100%;
+      height: auto;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+      pointer-events: none;
+    }
+    .cert-modal-close {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.75rem;
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+      line-height: 2rem;
+      text-align: center;
+      z-index: 1;
     }
   </style>
 </head>
@@ -183,6 +234,14 @@
       </div>
     </section>
 
+    <!-- PDF Certificate Modal -->
+    <div id="cert-modal">
+      <div class="cert-modal-inner">
+        <button class="cert-modal-close" id="cert-modal-close" aria-label="Close">&times;</button>
+        <img id="cert-modal-img" src="" alt="Certificate" draggable="false" />
+      </div>
+    </div>
+
   </main>
 
   <footer>
@@ -224,11 +283,35 @@
 
     // Render certificate patches
     var certsCloud = document.getElementById('certs-cloud');
+    var modal     = document.getElementById('cert-modal');
+    var modalImg  = document.getElementById('cert-modal-img');
+    document.getElementById('cert-modal-close').addEventListener('click', function () {
+      modal.classList.remove('open');
+      modalImg.src = '';
+    });
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) { modal.classList.remove('open'); modalImg.src = ''; }
+    });
     certificates.forEach(function (c) {
-      var span = document.createElement('span');
-      span.className = 'cert-patch';
-      span.textContent = c;
-      certsCloud.appendChild(span);
+      var el;
+      if (c.modal) {
+        el = document.createElement('button');
+        el.type = 'button';
+        el.addEventListener('click', function () {
+          modalImg.src = c.url;
+          modal.classList.add('open');
+        });
+      } else if (c.url) {
+        el = document.createElement('a');
+        el.href = c.url;
+        el.target = '_blank';
+        el.rel = 'noopener';
+      } else {
+        el = document.createElement('span');
+      }
+      el.className = 'cert-patch';
+      el.textContent = c.name;
+      certsCloud.appendChild(el);
     });
   </script>
 

@@ -3,12 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gregory Kojadinovich II — Engineering Portfolio</title>
+  <title>Gregory Kojadinovich II — Engineering</title>
   <meta name="description" content="Engineering portfolio of Gregory Kojadinovich II — ML/AI, petroleum engineering, building automation, iOS development, and software.">
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Square certificate patches */
+    .certs-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.75rem;
+    }
+    .cert-patch {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 140px;
+      height: 140px;
+      border-radius: 12px;
+      border: 2px solid rgba(74, 159, 226, 0.25);
+      background: var(--bg-card);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: var(--text-muted);
+      padding: 0.85rem;
+      line-height: 1.45;
+      transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+    .cert-patch:hover {
+      border-color: var(--accent);
+      color: var(--text);
+      box-shadow: 0 4px 16px rgba(74, 159, 226, 0.14);
+    }
+  </style>
 </head>
 <body>
 
@@ -26,7 +59,7 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="https://www.europawaters.xyz" target="_blank" rel="noopener">Europa Waters ↗</a></li>
-      <li><a href="portfolio.html" class="nav-active">Portfolio</a></li>
+      <li><a href="engineering.html" class="nav-active">Engineering</a></li>
       <li><a href="software.html">Software</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="space.html">Space</a></li>
@@ -63,82 +96,90 @@
 
     <hr class="accent-bar" style="max-width:var(--max-w); margin-left:auto; margin-right:auto;">
 
-     <p class="hero-eyebrow">Founder &nbsp;·&nbsp; Engineer &nbsp;·&nbsp; Veteran</p>
-      <h1>Gregory <em>Kojadinovich</em> II</h1>
-      <hr class="hero-divider">
-      <p class="hero-tagline">
-        Innovative engineer and Project Manager with 6+ years across facilities engineering, production optimization,
-        and building automation. 
-      </p>
+    <section class="section" style="padding-top:0; text-align:center;">
+      <div class="container">
+        <p class="hero-eyebrow">Founder &nbsp;·&nbsp; Engineer &nbsp;·&nbsp; Veteran</p>
+        <h1>Gregory <em>Kojadinovich</em> II</h1>
+        <hr class="hero-divider">
+        <p class="hero-tagline">
+          Innovative engineer and Project Manager with 6+ years across facilities engineering, production optimization,
+          and building automation.
+        </p>
+      </div>
+    </section>
 
 
 
     <hr class="accent-bar" style="max-width:var(--max-w); margin-left:auto; margin-right:auto;">
 
     <!-- SNAPSHOT -->
-    <section class="section" style="padding-top:0;">
-      <p class="section-label">By the Numbers</p>
-      <h2 class="section-title">A Snapshot of the <em>Work</em></h2>
-      <div class="card-grid">
+    <section class="section" style="background:var(--bg-card); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+      <div class="container">
+        <p class="section-label">By the Numbers</p>
+        <h2 class="section-title">A Snapshot of the <em>Work</em></h2>
+        <div class="card-grid">
 
-        <div class="card">
-          <span class="card-tag">ML / AI</span>
-          <div style="font-size:0.82rem; font-weight:700; color:var(--gold); margin-bottom:0.4rem; font-family:'Helvetica Neue',Arial,sans-serif;">
-            First Silver Medalist
+          <div class="card">
+            <span class="card-tag">ML / AI</span>
+            <div style="font-size:0.82rem; font-weight:700; color:var(--gold); margin-bottom:0.4rem; font-family:'Helvetica Neue',Arial,sans-serif;">
+              First Silver Medalist
+            </div>
+            <h3>AIMO3 — AI Mathematical Olympiad</h3>
+            <p>Entropy-weighted voting over seed-diverse solution paths using NVIDIA H100 + OpenAI GPT-OSS-120B.</p>
+            <a href="#ml-projects" class="card-link">View Projects →</a>
           </div>
-          <h3>AIMO3 — AI Mathematical Olympiad</h3>
-          <p>Entropy-weighted voting over seed-diverse solution paths using NVIDIA H100 + OpenAI GPT-OSS-120B.</p>
-          <a href="#ml-projects" class="card-link">View Projects →</a>
-        </div>
 
-        <div class="card">
-          <span class="card-tag">Petroleum and Chemical Engineering</span>
-          <h3>$221MM+ Project Manager Portfolio </h3>
-          <p>Managed greenfield Faciliies construction budget and midstream facilities in O&G, Data Center Capital Projects across multiple sectors. My approach is technical and direct, and my decisions are data-driven.</p>
-        </div>
+          <div class="card">
+            <span class="card-tag">Petroleum and Chemical Engineering</span>
+            <h3>$221MM+ Project Manager Portfolio </h3>
+            <p>Managed greenfield Faciliies construction budget and midstream facilities in O&amp;G, Data Center Capital Projects across multiple sectors. My approach is technical and direct, and my decisions are data-driven.</p>
+          </div>
 
-        <div class="card">
-          <span class="card-tag">iOS / SwiftUI</span>
-          <h3>Color Wheel App</h3>
-          <p>Free iOS app for painters learning RYB pigment mixing. Built with SwiftUI and real subtractive color physics.</p>
-          <a href="color-wheel.html" class="card-link">Try the Web Version →</a>
-        </div>
+          <div class="card">
+            <span class="card-tag">iOS / SwiftUI</span>
+            <h3>Color Wheel App</h3>
+            <p>Free iOS app for painters learning RYB pigment mixing. Built with SwiftUI and real subtractive color physics.</p>
+            <a href="color-wheel.html" class="card-link">Try the Web Version →</a>
+          </div>
 
-        <div class="card">
-          <span class="card-tag">Army Veteran</span>
-          <h3>U.S. Army Reserves</h3>
-          <p>Specialist, Petroleum &amp; Water Department. Distinguished Honors Graduate. Two Army Achievement Medals. Iron Man distinction.</p>
-        </div>
+          <div class="card">
+            <span class="card-tag">Army Veteran</span>
+            <h3>U.S. Army Reserves</h3>
+            <p>Specialist, Petroleum &amp; Water Department. Distinguished Honors Graduate. Two Army Achievement Medals. Iron Man distinction.</p>
+          </div>
 
+        </div>
       </div>
     </section>
 
     <!-- EDUCATION -->
-    <section class="section" style="background:var(--bg-card); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
-      <p class="section-label">Education</p>
-      <h2 class="section-title">The Pennsylvania State <em>University</em></h2>
-      <div class="card-grid">
-        <div class="card">
-          <span class="card-tag">Graduate · Class of 2018</span>
-          <h3>M.S. Energy &amp; Mineral Engineering</h3>
-          <p>Petroleum Engineering Option &nbsp;·&nbsp; Thesis Based &nbsp;·&nbsp; <strong>GPA 3.90</strong><br>
-          Outstanding Graduate Teaching Assistant Award</p>
-        </div>
-        <div class="card">
-          <span class="card-tag">Undergraduate · Class of 2018</span>
-          <h3>B.S. Petroleum &amp; Natural Gas Engineering</h3>
-          <p>Schreyer Honors College &nbsp;·&nbsp; Magna Cum Laude &nbsp;·&nbsp; <strong>GPA 3.94</strong><br>
-          Passed the Chemical Engineering FE Exam</p>
+    <section class="section">
+      <div class="container">
+        <p class="section-label">Education</p>
+        <h2 class="section-title">The Pennsylvania State <em>University</em></h2>
+        <div class="card-grid">
+          <div class="card">
+            <span class="card-tag">Graduate · Class of 2018</span>
+            <h3>M.S. Energy &amp; Mineral Engineering</h3>
+            <p>Petroleum Engineering Option &nbsp;·&nbsp; Thesis Based &nbsp;·&nbsp; <strong>GPA 3.90</strong><br>
+            Outstanding Graduate Teaching Assistant Award</p>
+          </div>
+          <div class="card">
+            <span class="card-tag">Undergraduate · Class of 2018</span>
+            <h3>B.S. Petroleum &amp; Natural Gas Engineering</h3>
+            <p>Schreyer Honors College &nbsp;·&nbsp; Magna Cum Laude &nbsp;·&nbsp; <strong>GPA 3.94</strong><br>
+            Passed the Chemical Engineering FE Exam</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- CERTIFICATES -->
-    <section class="section" style="padding-top:2rem;">
+    <section class="section" style="background:var(--bg-card); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
       <div class="container">
         <p class="section-label">Credentials</p>
         <h2 class="section-title">Certificates &amp; <em>Training</em></h2>
-        <div class="skills-cloud" id="certs-cloud"></div>
+        <div class="certs-grid" id="certs-cloud"></div>
       </div>
     </section>
 
@@ -181,11 +222,11 @@
       grid.appendChild(card);
     });
 
-    // Render certificate tags
+    // Render certificate patches
     var certsCloud = document.getElementById('certs-cloud');
     certificates.forEach(function (c) {
       var span = document.createElement('span');
-      span.className = 'skill-tag';
+      span.className = 'cert-patch';
       span.textContent = c;
       certsCloud.appendChild(span);
     });

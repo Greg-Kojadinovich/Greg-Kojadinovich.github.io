@@ -73,6 +73,5 @@ const certificates = [
   "Stanford Machine Learning Specialization",
   "IBM Professional Data Scientist",
   "ML-Ops Specialization",
-  "iOS Swift Development",
-  "Wild Well Control Certificate"
+  "iOS Swift Development"
 ];

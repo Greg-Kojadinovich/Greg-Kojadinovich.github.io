@@ -63,11 +63,12 @@ body {
 
 .nav-brand-text {
   font-family: var(--font-head);
-  font-size: 0.85rem;
+  font-size: clamp(0.6rem, 1.8vw, 0.85rem);
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   color: var(--accent);
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .nav-collapse {

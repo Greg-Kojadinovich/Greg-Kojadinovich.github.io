@@ -128,7 +128,7 @@
       flex-direction: column;
       align-items: center;
       gap: 0;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0;
     }
 
     .logo-orbit-sm {
@@ -156,7 +156,7 @@
 
     #nasa-frame iframe {
       width: 100%;
-      height: 72vh;
+      height: 55vh;
       border: none;
       border-radius: var(--radius);
       border: 2px solid var(--gold);
@@ -221,26 +221,31 @@
 
     /* ---- JUPITER IMAGE + MOONS SECTION ---- */
     .jupiter-section {
-      margin-top: 2rem;
+      margin-top: 0.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1rem;
+      gap: 0.5rem;
       width: 100%;
     }
 
     .jupiter-section-label {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--mid);
+      padding: 0.55rem 1.4rem;
+      border-radius: 8px;
+      background: rgba(212,175,55,0.06);
+      border: 1px solid rgba(212,175,55,0.18);
     }
 
     /* ---- JUPITER IMAGE MAP ---- */
     .jupiter-map {
       position: relative;
-      max-width: 560px;
+      max-width: 380px;
       width: 100%;
     }
 
@@ -398,23 +403,8 @@
             <div class="ring"></div>
             <div class="logo-text-wrap">
               <div class="logo-name"><strong>Europa</strong> Waters</div>
-              <div class="logo-sub">LLC</div>
             </div>
           </div>
-        </div>
-
-        <p class="nasa-label">NASA — Eyes on the Solar System</p>
-
-        <div class="destination-bar">
-          <button class="dest-btn active" data-dest="home">Solar System</button>
-          <button class="dest-btn" data-dest="mercury">Mercury</button>
-          <button class="dest-btn" data-dest="venus">Venus</button>
-          <button class="dest-btn" data-dest="earth">Earth</button>
-          <button class="dest-btn" data-dest="mars">Mars</button>
-          <button class="dest-btn" data-dest="jupiter">Jupiter</button>
-          <button class="dest-btn" data-dest="saturn">Saturn</button>
-          <button class="dest-btn" data-dest="uranus">Uranus</button>
-          <button class="dest-btn" data-dest="neptune">Neptune</button>
         </div>
 
         <!-- JUPITER & GALILEAN MOONS -->
@@ -431,10 +421,6 @@
           </div>
         </div>
 
-        <a href="https://www.europawaters.xyz/product-page/jupiter-and-galilean-moons-unisex-premium-sweatshirt"
-           target="_blank" rel="noopener"
-           class="btn-buy-shirt">Buy the Shirt ↗</a>
-
         <iframe
           id="nasa-iframe"
           src="https://eyes.nasa.gov/apps/solar-system/#/home"
@@ -442,6 +428,22 @@
           allow="fullscreen"
           loading="lazy">
         </iframe>
+
+        <div class="destination-bar">
+          <button class="dest-btn active" data-dest="home">Solar System</button>
+          <button class="dest-btn" data-dest="mercury">Mercury</button>
+          <button class="dest-btn" data-dest="venus">Venus</button>
+          <button class="dest-btn" data-dest="earth">Earth</button>
+          <button class="dest-btn" data-dest="mars">Mars</button>
+          <button class="dest-btn" data-dest="jupiter">Jupiter</button>
+          <button class="dest-btn" data-dest="saturn">Saturn</button>
+          <button class="dest-btn" data-dest="uranus">Uranus</button>
+          <button class="dest-btn" data-dest="neptune">Neptune</button>
+        </div>
+
+        <a href="https://www.europawaters.xyz/product-page/jupiter-and-galilean-moons-unisex-premium-sweatshirt"
+           target="_blank" rel="noopener"
+           class="btn-buy-shirt">Buy the Shirt ↗</a>
 
         <a href="https://www.europawaters.xyz/category/all-products"
            target="_blank" rel="noopener"

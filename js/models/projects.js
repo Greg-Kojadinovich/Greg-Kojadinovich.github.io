@@ -21,11 +21,11 @@ const projects = [
     thumb: "assets/images/aimo2.png"
   },
   {
-    title: "Color Wheel — iOS App",
+    title: "PleinColorWheel — iOS App",
     tag: "iOS / SwiftUI",
     medal: null,
     description: "Free iOS app for painters learning color theory. Built with SwiftUI and powered by real subtractive RYB pigment mixing physics — not the RGB model taught in digital design. Try the interactive web version on the Color Wheel page.",
-    link: "https://apps.apple.com/app/colorwheel",
+    link: "https://apps.apple.com/us/app/pleincolorwheel/id6790414651",
     linkLabel: "Download on App Store",
     thumb: "assets/images/AppIcon.png",
     thumbIcon: true

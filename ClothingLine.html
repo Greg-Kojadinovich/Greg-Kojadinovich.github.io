@@ -635,10 +635,55 @@
     
     const baseUrl = './assets/EuropaWatersClothingLine_compressed/';
     const CAROUSEL_INTERVAL = 4500; // 4.5 seconds
-    const HERO_IMAGES_COUNT = null; // null = all images
+    const HERO_IMAGES_COUNT = 10; // 10 curated images per product
+    const HERO_COLORS = ['black', 'gold', 'lightblue', 'pink', 'white'];
+    const HERO_FRONT_COUNT = 8;
+    const HERO_BACK_COUNT = 2;
     
-    // Product folder mapping
-    const productFolderMap = {
+    function selectHeroImages(allImages) {
+      if (!allImages || allImages.length === 0) return [];
+      
+      // Parse filename to extract color and view (front/back)
+      const parseImage = (url) => {
+        const filename = url.split('/').pop();
+        const parts = filename.split('-');
+        
+        // Extract color (between product name and front/back)
+        let color = '';
+        let view = '';
+        
+        if (filename.includes('-front-')) {
+          color = filename.split('-front-')[0].split('-').pop();
+          view = 'front';
+        } else if (filename.includes('-back-')) {
+          color = filename.split('-back-')[0].split('-').pop();
+          view = 'back';
+        }
+        
+        return { url, color: color.toLowerCase(), view };
+      };
+      
+      const parsed = allImages.map(parseImage);
+      
+      // Filter by allowed colors
+      const filtered = parsed.filter(img => 
+        HERO_COLORS.some(allowedColor => img.color.includes(allowedColor))
+      );
+      
+      // Separate front and back images
+      const frontImages = filtered.filter(img => img.view === 'front');
+      const backImages = filtered.filter(img => img.view === 'back');
+      
+      // Select 8 front, 2 back
+      const selected = [
+        ...frontImages.slice(0, HERO_FRONT_COUNT),
+        ...backImages.slice(0, HERO_BACK_COUNT)
+      ];
+      
+      // Return URLs only
+      return selected.map(img => img.url);
+    }
+    
       'product_bda2737e-74fe-4ad5-b1e1-b6405f089c96': 'WanderingFern_hoodie',
       'product_7e8f2d1a-9c3b-4e5f-a2d8-c1b5f7e9d3a1': 'europaflower_hoodie',
       'product_5a2f1c9b-8d7e-4c3a-b1f9-e7d5c2a8b6f3': 'OurNorthStars_tee',
@@ -658,7 +703,7 @@
         this.container = document.getElementById(containerId);
         this.currentIndex = 0;
         this.autoAdvanceTimer = null;
-        this.heroImages = HERO_IMAGES_COUNT ? product.images.slice(0, HERO_IMAGES_COUNT) : product.images;
+        this.heroImages = HERO_IMAGES_COUNT ? selectHeroImages(product.images) : product.images;
         this.init();
       }
       
@@ -803,8 +848,9 @@
         const square = document.createElement('div');
         square.className = 'product-square';
         
-        // Use first image as hero
-        const heroImg = product.images[0] || '';
+        // Use first hero image as card image
+        const heroImages = selectHeroImages(product.images);
+        const heroImg = heroImages[0] || product.images[0] || '';
         const productName = product.name.split(' ').slice(0, 3).join(' '); // First 3 words
         
         square.innerHTML = `

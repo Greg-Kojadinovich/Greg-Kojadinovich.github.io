@@ -381,6 +381,183 @@
       object-fit: cover;
     }
     
+    /* IMAGE LIGHTBOX / ZOOM */
+    #image-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    #image-lightbox.active {
+      display: flex;
+    }
+    
+    .lightbox-content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .lightbox-image-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    
+    .lightbox-image {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transition: transform 0.2s ease;
+    }
+    
+    .lightbox-controls {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 16px 24px;
+      border-radius: 50px;
+      z-index: 10001;
+    }
+    
+    .lightbox-btn {
+      background: rgba(212, 175, 55, 0.2);
+      color: #d4af37;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .lightbox-btn:hover {
+      background: rgba(212, 175, 55, 0.4);
+      border-color: rgba(212, 175, 55, 0.7);
+    }
+    
+    .lightbox-zoom-level {
+      color: #d4af37;
+      font-size: 12px;
+      font-weight: 600;
+      min-width: 50px;
+      text-align: center;
+    }
+    
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background: rgba(212, 175, 55, 0.2);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #d4af37;
+      border-radius: 8px;
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      z-index: 10001;
+    }
+    
+    .lightbox-nav:hover {
+      background: rgba(212, 175, 55, 0.4);
+      border-color: rgba(212, 175, 55, 0.7);
+    }
+    
+    .lightbox-nav.prev {
+      left: 20px;
+    }
+    
+    .lightbox-nav.next {
+      right: 20px;
+    }
+    
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: rgba(212, 175, 55, 0.2);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #d4af37;
+      border-radius: 8px;
+      font-size: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      z-index: 10001;
+    }
+    
+    .lightbox-close:hover {
+      background: rgba(212, 175, 55, 0.4);
+      border-color: rgba(212, 175, 55, 0.7);
+    }
+    
+    .lightbox-counter {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #d4af37;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      z-index: 10001;
+    }
+    
+    @media (max-width: 768px) {
+      .lightbox-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
+      
+      .lightbox-nav.prev {
+        left: 10px;
+      }
+      
+      .lightbox-nav.next {
+        right: 10px;
+      }
+      
+      .lightbox-controls {
+        bottom: 20px;
+        padding: 12px 16px;
+        gap: 8px;
+      }
+      
+      .lightbox-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+      }
+    }
+    
     /* PRODUCT SECTION */
     .product-section {
       margin-bottom: 50px;
@@ -419,6 +596,24 @@
         <button class="product-detail-close" id="product-detail-close">×</button>
       </div>
       <div class="product-detail-grid" id="product-detail-grid"></div>
+    </div>
+  </div>
+  
+  <!-- Image Lightbox / Zoom Modal -->
+  <div id="image-lightbox">
+    <button class="lightbox-close" id="lightbox-close">×</button>
+    <div class="lightbox-counter" id="lightbox-counter">1/100</div>
+    <button class="lightbox-nav prev" id="lightbox-prev">‹</button>
+    <button class="lightbox-nav next" id="lightbox-next">›</button>
+    <div class="lightbox-content">
+      <div class="lightbox-image-container">
+        <img id="lightbox-image" class="lightbox-image" src="" alt="Zoomed image" />
+      </div>
+      <div class="lightbox-controls">
+        <button class="lightbox-btn" id="lightbox-zoom-out">−</button>
+        <span class="lightbox-zoom-level" id="lightbox-zoom-level">100%</span>
+        <button class="lightbox-btn" id="lightbox-zoom-in">+</button>
+      </div>
     </div>
   </div>
   
@@ -637,6 +832,7 @@
         const item = document.createElement('div');
         item.className = 'product-detail-img';
         item.innerHTML = `<img src="${img}" alt="${product.name} - Image ${idx + 1}" loading="lazy" />`;
+        item.addEventListener('click', () => openLightbox(product.images, idx));
         grid.appendChild(item);
       });
       
@@ -647,6 +843,95 @@
     function closeProductDetail() {
       document.getElementById('product-detail-modal').classList.remove('active');
     }
+    
+    // LIGHTBOX / IMAGE ZOOM
+    let lightboxState = {
+      images: [],
+      currentIndex: 0,
+      zoomLevel: 100
+    };
+    
+    function openLightbox(images, index) {
+      lightboxState.images = images;
+      lightboxState.currentIndex = index;
+      lightboxState.zoomLevel = 100;
+      
+      const lightbox = document.getElementById('image-lightbox');
+      const img = document.getElementById('lightbox-image');
+      
+      img.src = images[index];
+      img.style.transform = 'scale(1)';
+      
+      updateLightboxUI();
+      lightbox.classList.add('active');
+    }
+    
+    function closeLightbox() {
+      document.getElementById('image-lightbox').classList.remove('active');
+    }
+    
+    function updateLightboxUI() {
+      const counter = document.getElementById('lightbox-counter');
+      const zoomLevel = document.getElementById('lightbox-zoom-level');
+      
+      counter.textContent = `${lightboxState.currentIndex + 1}/${lightboxState.images.length}`;
+      zoomLevel.textContent = `${lightboxState.zoomLevel}%`;
+      
+      const img = document.getElementById('lightbox-image');
+      img.style.transform = `scale(${lightboxState.zoomLevel / 100})`;
+    }
+    
+    function nextImage() {
+      lightboxState.currentIndex = (lightboxState.currentIndex + 1) % lightboxState.images.length;
+      lightboxState.zoomLevel = 100;
+      document.getElementById('lightbox-image').src = lightboxState.images[lightboxState.currentIndex];
+      updateLightboxUI();
+    }
+    
+    function prevImage() {
+      lightboxState.currentIndex = (lightboxState.currentIndex - 1 + lightboxState.images.length) % lightboxState.images.length;
+      lightboxState.zoomLevel = 100;
+      document.getElementById('lightbox-image').src = lightboxState.images[lightboxState.currentIndex];
+      updateLightboxUI();
+    }
+    
+    function zoomIn() {
+      if (lightboxState.zoomLevel < 300) {
+        lightboxState.zoomLevel += 20;
+        updateLightboxUI();
+      }
+    }
+    
+    function zoomOut() {
+      if (lightboxState.zoomLevel > 100) {
+        lightboxState.zoomLevel -= 20;
+        updateLightboxUI();
+      }
+    }
+    
+    // Lightbox event listeners
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    document.getElementById('lightbox-prev').addEventListener('click', prevImage);
+    document.getElementById('lightbox-next').addEventListener('click', nextImage);
+    document.getElementById('lightbox-zoom-in').addEventListener('click', zoomIn);
+    document.getElementById('lightbox-zoom-out').addEventListener('click', zoomOut);
+    
+    // Close lightbox on background click
+    document.getElementById('image-lightbox').addEventListener('click', (e) => {
+      if (e.target.id === 'image-lightbox') closeLightbox();
+    });
+    
+    // Keyboard controls
+    document.addEventListener('keydown', (e) => {
+      const lightbox = document.getElementById('image-lightbox');
+      if (!lightbox.classList.contains('active')) return;
+      
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === '+' || e.key === '=') zoomIn();
+      if (e.key === '-') zoomOut();
+    });
     
     // Modal event listeners
     document.getElementById('product-detail-close').addEventListener('click', closeProductDetail);

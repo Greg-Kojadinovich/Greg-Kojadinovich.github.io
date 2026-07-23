@@ -636,43 +636,31 @@
     const baseUrl = './assets/EuropaWatersClothingLine_compressed/';
     const CAROUSEL_INTERVAL = 4500; // 4.5 seconds
     const HERO_IMAGES_COUNT = 10; // 10 curated images per product
-    const HERO_COLORS = ['black', 'gold', 'lightblue', 'pink', 'white'];
     const HERO_FRONT_COUNT = 8;
     const HERO_BACK_COUNT = 2;
     
     function selectHeroImages(allImages) {
       if (!allImages || allImages.length === 0) return [];
       
-      // Parse filename to extract color and view (front/back)
+      // Parse filename to extract view (front/back)
       const parseImage = (url) => {
         const filename = url.split('/').pop();
-        const parts = filename.split('-');
-        
-        // Extract color (between product name and front/back)
-        let color = '';
         let view = '';
         
         if (filename.includes('-front-')) {
-          color = filename.split('-front-')[0].split('-').pop();
           view = 'front';
         } else if (filename.includes('-back-')) {
-          color = filename.split('-back-')[0].split('-').pop();
           view = 'back';
         }
         
-        return { url, color: color.toLowerCase(), view };
+        return { url, view };
       };
       
       const parsed = allImages.map(parseImage);
       
-      // Filter by allowed colors
-      const filtered = parsed.filter(img => 
-        HERO_COLORS.some(allowedColor => img.color.includes(allowedColor))
-      );
-      
       // Separate front and back images
-      const frontImages = filtered.filter(img => img.view === 'front');
-      const backImages = filtered.filter(img => img.view === 'back');
+      const frontImages = parsed.filter(img => img.view === 'front');
+      const backImages = parsed.filter(img => img.view === 'back');
       
       // Select 8 front, 2 back
       const selected = [

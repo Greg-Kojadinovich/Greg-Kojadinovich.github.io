@@ -334,29 +334,39 @@
   </div>
   
   <script>
-    // CSV DATA - All 11 products
+    // CSV DATA - All 11 products (folder mapping for compressed images)
     const productsData = [
-      {
-        id: "product_bda2737e-74fe-4ad5-b1e1-b6405f089c96",
-        name: "Wandering Fern Unisex Hoodie",
-        price: "$30.50",
-        images: ["e13df5_410f997704d9451f9ba645abbb24ebb6~mv2.jpg","e13df5_451ac887f1914cafbdb223fd57da4cf1~mv2.jpg","e13df5_9ed3b9631f9c4513884d83ba8e09fe2b~mv2.jpg","e13df5_84a019285c674ad9acada3ff86627c3e~mv2.jpg","e13df5_da649c5809f645908fa4fa5cff5d64ff~mv2.jpg","e13df5_b26835a5a58a480fa6650216b0402d15~mv2.jpg","e13df5_0153d88e44ec4a6cb12a0b8f47f4db20~mv2.jpg","e13df5_401b0d4b620d4ee8828324ac976c78a1~mv2.jpg","e13df5_2a76ea6bd0ad49bdbc47f349bff113f8~mv2.jpg","e13df5_abd2bdf5563e4ec2bfc22a9ff9db517e~mv2.jpg","e13df5_3b481f3830eb4ba48a0411a4929841a6~mv2.jpg","e13df5_6c8d917599714dad850959ce787104de~mv2.jpg","e13df5_2174c734bc5c48c8b39b1e6448b34fff~mv2.jpg","e13df5_a4b4dbb48a884c1cb3038610caa5b28b~mv2.jpg","e13df5_573c7e5cc03143ea9dd5197df2f849b7~mv2.jpg","e13df5_a64b8d5a77ac4723b2b21ac540524420~mv2.jpg","e13df5_ade969c827e641dd8d82020f79b41666~mv2.jpg","e13df5_2b1193aea1884ff2b615bc1f370ecf51~mv2.jpg","e13df5_def0710f077143729b2f3eb7695836b5~mv2.jpg","e13df5_ccd5d55737a34b08a29e737299faeca9~mv2.jpg","e13df5_b0c7381bf84a432190abe5860dd41427~mv2.jpg","e13df5_cf825273fe6a4d84bf4dd252aa9a81ef~mv2.jpg","e13df5_088e4f51168448c698f0d79e2d718212~mv2.jpg","e13df5_658ad8058254499596f3506b48348c05~mv2.jpg","e13df5_1522e59e1c954c658f498bfdd84efb8c~mv2.jpg","e13df5_cab80837be7d4c039e6616a2d1a6ae29~mv2.jpg","e13df5_06279d81962545bd888cdb9cf850488f~mv2.jpg","e13df5_85212a37633f43b2966418d8dc13dda4~mv2.jpg","e13df5_22eeb488dac748c788e5cff0809abbd8~mv2.jpg","e13df5_a0f8375789dc448bbdcb3471f0c4fbb4~mv2.jpg","e13df5_5be8d62428114df99f69964270c06611~mv2.jpg","e13df5_e856a19fa45146adbb02fa30460ab5bc~mv2.jpg","e13df5_6e04590bb30b45f09de9fe1abfee9261~mv2.jpg","e13df5_29cb1731bc6d488699328621996cd5ea~mv2.jpg","e13df5_139c1fe11ec64e9daebc73969e319454~mv2.jpg","e13df5_070649940eed47dcb75512e9113079f1~mv2.jpg","e13df5_d164e38fec034085824f262e27783d1b~mv2.jpg","e13df5_23f0f0fa10e34a4b93becc2115c752f1~mv2.jpg"]
-      },
-      { id: "product_7e8f2d1a-9c3b-4e5f-a2d8-c1b5f7e9d3a1", name: "Europa Flower Unisex Hoodie", price: "$37.00", images: ["e13df5_410f997704d9451f9ba645abbb24ebb6~mv2.jpg","e13df5_451ac887f1914cafbdb223fd57da4cf1~mv2.jpg","e13df5_9ed3b9631f9c4513884d83ba8e09fe2b~mv2.jpg","e13df5_84a019285c674ad9acada3ff86627c3e~mv2.jpg","e13df5_da649c5809f645908fa4fa5cff5d64ff~mv2.jpg","e13df5_b26835a5a58a480fa6650216b0402d15~mv2.jpg","e13df5_0153d88e44ec4a6cb12a0b8f47f4db20~mv2.jpg","e13df5_401b0d4b620d4ee8828324ac976c78a1~mv2.jpg","e13df5_2a76ea6bd0ad49bdbc47f349bff113f8~mv2.jpg","e13df5_abd2bdf5563e4ec2bfc22a9ff9db517e~mv2.jpg","e13df5_3b481f3830eb4ba48a0411a4929841a6~mv2.jpg","e13df5_6c8d917599714dad850959ce787104de~mv2.jpg","e13df5_2174c734bc5c48c8b39b1e6448b34fff~mv2.jpg","e13df5_a4b4dbb48a884c1cb3038610caa5b28b~mv2.jpg","e13df5_573c7e5cc03143ea9dd5197df2f849b7~mv2.jpg","e13df5_a64b8d5a77ac4723b2b21ac540524420~mv2.jpg","e13df5_ade969c827e641dd8d82020f79b41666~mv2.jpg","e13df5_2b1193aea1884ff2b615bc1f370ecf51~mv2.jpg","e13df5_def0710f077143729b2f3eb7695836b5~mv2.jpg","e13df5_ccd5d55737a34b08a29e737299faeca9~mv2.jpg","e13df5_b0c7381bf84a432190abe5860dd41427~mv2.jpg","e13df5_cf825273fe6a4d84bf4dd252aa9a81ef~mv2.jpg","e13df5_088e4f51168448c698f0d79e2d718212~mv2.jpg","e13df5_658ad8058254499596f3506b48348c05~mv2.jpg","e13df5_1522e59e1c954c658f498bfdd84efb8c~mv2.jpg","e13df5_cab80837be7d4c039e6616a2d1a6ae29~mv2.jpg","e13df5_06279d81962545bd888cdb9cf850488f~mv2.jpg","e13df5_85212a37633f43b2966418d8dc13dda4~mv2.jpg","e13df5_22eeb488dac748c788e5cff0809abbd8~mv2.jpg","e13df5_a0f8375789dc448bbdcb3471f0c4fbb4~mv2.jpg"] },
-      { id: "product_5a2f1c9b-8d7e-4c3a-b1f9-e7d5c2a8b6f3", name: "Our North Stars Unisex Classic Tee", price: "$15.00", images: ["e13df5_410f997704d9451f9ba645abbb24ebb6~mv2.jpg","e13df5_451ac887f1914cafbdb223fd57da4cf1~mv2.jpg","e13df5_9ed3b9631f9c4513884d83ba8e09fe2b~mv2.jpg","e13df5_84a019285c674ad9acada3ff86627c3e~mv2.jpg","e13df5_da649c5809f645908fa4fa5cff5d64ff~mv2.jpg","e13df5_b26835a5a58a480fa6650216b0402d15~mv2.jpg"] },
-      { id: "product_9d3b8f1c-2e5a-4b7f-c8d1-a3f5e7b9c2d6", name: "Hummingbird Floral Skater Dress", price: "$42.95", images: ["e13df5_410f997704d9451f9ba645abbb24ebb6~mv2.jpg","e13df5_451ac887f1914cafbdb223fd57da4cf1~mv2.jpg","e13df5_9ed3b9631f9c4513884d83ba8e09fe2b~mv2.jpg","e13df5_84a019285c674ad9acada3ff86627c3e~mv2.jpg"] },
-      { id: "product_3c7e2a1f-6b9d-4e8a-f5c2-b1d7e3a9f5c8", name: "Under Armour Athletic T-Shirt", price: "$35.50", images: ["e13df5_410f997704d9451f9ba645abbb24ebb6~mv2.jpg","e13df5_451ac887f1914cafbdb223fd57da4cf1~mv2.jpg","e13df5_9ed3b9631f9c4513884d83ba8e09fe2b~mv2.jpg","e13df5_84a019285c674ad9acada3ff86627c3e~mv2.jpg","e13df5_da649c5809f645908fa4fa5cff5d64ff~mv2.jpg","e13df5_b26835a5a58a480fa6650216b0402d15~mv2.jpg"] },
-      { id: "product_8b5f3d2c-9a7e-4c1b-e6f2-d5a8c1b7e3f9", name: "Europa Waters Unisex Hoodie", price: "$39.00", images: ["e13df5_410f997704d9451f9ba645abbb24ebb6~mv2.jpg","e13df5_451ac887f1914cafbdb223fd57da4cf1~mv2.jpg","e13df5_9ed3b9631f9c4513884d83ba8e09fe2b~mv2.jpg","e13df5_84a019285c674ad9acada3ff86627c3e~mv2.jpg","e13df5_da649c5809f645908fa4fa5cff5d64ff~mv2.jpg","e13df5_b26835a5a58a480fa6650216b0402d15~mv2.jpg"] },
-      { id: "product_2d8c5a3b-7e1f-4a9c-d7b4-f2c8e1a6d5b9", name: "Europa Waters Unisex Sweatshirt", price: "$32.00", images: ["e13df5_410f997704d9451f9ba645abbb24ebb6~mv2.jpg","e13df5_451ac887f1914cafbdb223fd57da4cf1~mv2.jpg","e13df5_9ed3b9631f9c4513884d83ba8e09fe2b~mv2.jpg","e13df5_84a019285c674ad9acada3ff86627c3e~mv2.jpg","e13df5_da649c5809f645908fa4fa5cff5d64ff~mv2.jpg","e13df5_b26835a5a58a480fa6650216b0402d15~mv2.jpg"] },
-      { id: "product_1a6f4e2b-8d3c-4f7a-c5e1-b9a2f8d4c7e3", name: "Europa Waters Unisex Classic Tee", price: "$17.50", images: ["e13df5_410f997704d9451f9ba645abbb24ebb6~mv2.jpg","e13df5_451ac887f1914cafbdb223fd57da4cf1~mv2.jpg","e13df5_9ed3b9631f9c4513884d83ba8e09fe2b~mv2.jpg","e13df5_84a019285c674ad9acada3ff86627c3e~mv2.jpg","e13df5_da649c5809f645908fa4fa5cff5d64ff~mv2.jpg","e13df5_b26835a5a58a480fa6650216b0402d15~mv2.jpg"] },
-      { id: "product_7c2a5d1e-3f8b-4e9c-a7d2-f4b6e1c8d5a9", name: "Jupiter and Galilean Moons Premium Sweatshirt", price: "$45.00", images: ["e13df5_410f997704d9451f9ba645abbb24ebb6~mv2.jpg","e13df5_451ac887f1914cafbdb223fd57da4cf1~mv2.jpg","e13df5_9ed3b9631f9c4513884d83ba8e09fe2b~mv2.jpg","e13df5_84a019285c674ad9acada3ff86627c3e~mv2.jpg","e13df5_da649c5809f645908fa4fa5cff5d64ff~mv2.jpg","e13df5_b26835a5a58a480fa6650216b0402d15~mv2.jpg"] },
-      { id: "product_4b8d3f2a-6c5e-4a7b-d1f9-e8c2b5a7d4c6", name: "Kepler's First Law", price: "$38.24", images: ["e13df5_410f997704d9451f9ba645abbb24ebb6~mv2.jpg","e13df5_451ac887f1914cafbdb223fd57da4cf1~mv2.jpg","e13df5_9ed3b9631f9c4513884d83ba8e09fe2b~mv2.jpg","e13df5_84a019285c674ad9acada3ff86627c3e~mv2.jpg","e13df5_da649c5809f645908fa4fa5cff5d64ff~mv2.jpg","e13df5_b26835a5a58a480fa6650216b0402d15~mv2.jpg"] },
-      { id: "product_9e7a2c1d-4f6b-4c8e-b3a5-c9d1e7f2a8b4", name: "Europa Flower Crew Neck Sweatshirt", price: "$23.35", images: ["e13df5_410f997704d9451f9ba645abbb24ebb6~mv2.jpg","e13df5_451ac887f1914cafbdb223fd57da4cf1~mv2.jpg","e13df5_9ed3b9631f9c4513884d83ba8e09fe2b~mv2.jpg","e13df5_84a019285c674ad9acada3ff86627c3e~mv2.jpg","e13df5_da649c5809f645908fa4fa5cff5d64ff~mv2.jpg","e13df5_b26835a5a58a480fa6650216b0402d15~mv2.jpg"] }
+      { id: "product_bda2737e-74fe-4ad5-b1e1-b6405f089c96", name: "Wandering Fern Unisex Hoodie", price: "$30.50", folder: "WanderingFern_hoodie", images: [] },
+      { id: "product_7e8f2d1a-9c3b-4e5f-a2d8-c1b5f7e9d3a1", name: "Europa Flower Unisex Hoodie", price: "$37.00", folder: "europaflower_hoodie", images: [] },
+      { id: "product_5a2f1c9b-8d7e-4c3a-b1f9-e7d5c2a8b6f3", name: "Our North Stars Unisex Classic Tee", price: "$15.00", folder: "OurNorthStars_tee", images: [] },
+      { id: "product_9d3b8f1c-2e5a-4b7f-c8d1-a3f5e7b9c2d6", name: "Hummingbird Floral Skater Dress", price: "$42.95", folder: "Hummingbird_dress", images: [] },
+      { id: "product_3c7e2a1f-6b9d-4e8a-f5c2-b1d7e3a9f5c8", name: "Under Armour Athletic T-Shirt", price: "$35.50", folder: "jupiterandmoons_tee", images: [] },
+      { id: "product_8b5f3d2c-9a7e-4c1b-e6f2-d5a8c1b7e3f9", name: "Europa Waters Unisex Hoodie", price: "$39.00", folder: "europawaters_hoodie", images: [] },
+      { id: "product_2d8c5a3b-7e1f-4a9c-d7b4-f2c8e1a6d5b9", name: "Europa Waters Unisex Sweatshirt", price: "$32.00", folder: "europawaters_crewhoodie", images: [] },
+      { id: "product_1a6f4e2b-8d3c-4f7a-c5e1-b9a2f8d4c7e3", name: "Europa Waters Unisex Classic Tee", price: "$17.50", folder: "europawaters_tee", images: [] },
+      { id: "product_7c2a5d1e-3f8b-4e9c-a7d2-f4b6e1c8d5a9", name: "Jupiter and Galilean Moons Premium Sweatshirt", price: "$45.00", folder: "jupiterandmoons_crewhoodie", images: [] },
+      { id: "product_4b8d3f2a-6c5e-4a7b-d1f9-e8c2b5a7d4c6", name: "Kepler's First Law", price: "$38.24", folder: "keplersfirstlaw_hoodie", images: [] },
+      { id: "product_9e7a2c1d-4f6b-4c8e-b3a5-c9d1e7f2a8b4", name: "Europa Flower Crew Neck Sweatshirt", price: "$23.35", folder: "europaflower_crewhoodie", images: [] }
     ];
     
-    const baseUrl = 'https://static.wixstatic.com/media/';
+    const baseUrl = './assets/EuropaWatersClothingLine_compressed/';
     const CAROUSEL_INTERVAL = 4500; // 4.5 seconds
     const HERO_IMAGES_COUNT = 6;
+    
+    // Product folder mapping
+    const productFolderMap = {
+      'product_bda2737e-74fe-4ad5-b1e1-b6405f089c96': 'WanderingFern_hoodie',
+      'product_7e8f2d1a-9c3b-4e5f-a2d8-c1b5f7e9d3a1': 'europaflower_hoodie',
+      'product_5a2f1c9b-8d7e-4c3a-b1f9-e7d5c2a8b6f3': 'OurNorthStars_tee',
+      'product_9d3b8f1c-2e5a-4b7f-c8d1-a3f5e7b9c2d6': 'Hummingbird_dress',
+      'product_3c7e2a1f-6b9d-4e8a-f5c2-b1d7e3a9f5c8': 'jupiterandmoons_tee',
+      'product_8b5f3d2c-9a7e-4c1b-e6f2-d5a8c1b7e3f9': 'europawaters_hoodie',
+      'product_2d8c5a3b-7e1f-4a9c-d7b4-f2c8e1a6d5b9': 'europawaters_crewhoodie',
+      'product_1a6f4e2b-8d3c-4f7a-c5e1-b9a2f8d4c7e3': 'europawaters_tee',
+      'product_7c2a5d1e-3f8b-4e9c-a7d2-f4b6e1c8d5a9': 'jupiterandmoons_crewhoodie',
+      'product_4b8d3f2a-6c5e-4a7b-d1f9-e8c2b5a7d4c6': 'keplersfirstlaw_hoodie',
+      'product_9e7a2c1d-4f6b-4c8e-b3a5-c9d1e7f2a8b4': 'europaflower_crewhoodie'
+    };
     
     class ProductCarousel {
       constructor(product, containerId) {
@@ -382,7 +392,7 @@
             <div class="carousel-inner" id="carousel-${this.product.id}">
               ${this.heroImages.map((img, idx) => `
                 <div class="carousel-item ${idx === 0 ? 'active' : ''}">
-                  <img src="${baseUrl}${img}" alt="${this.product.name} image ${idx + 1}" loading="lazy" />
+                  <img src="${img}" alt="${this.product.name} image ${idx + 1}" loading="lazy" />
                 </div>
               `).join('')}
             </div>
@@ -519,7 +529,7 @@
           item.className = 'image-item';
           item.style.position = 'relative';
           item.innerHTML = `
-            <img src="${baseUrl}${img}" alt="${product.name} - Image ${idx + 1}" loading="lazy" />
+            <img src="${img}" alt="${product.name} - Image ${idx + 1}" loading="lazy" />
             <div class="image-label">#${idx + 1}</div>
           `;
           grid.appendChild(item);
@@ -546,9 +556,25 @@
     });
     
     // Initialize on load
-    window.addEventListener('DOMContentLoaded', () => {
-      initHeroView();
-      initAllImagesView();
+    window.addEventListener('DOMContentLoaded', async () => {
+      try {
+        // Load image manifest
+        const response = await fetch('./assets/images/images-manifest.json');
+        const manifest = await response.json();
+        
+        // Populate images for each product
+        productsData.forEach(product => {
+          if (manifest[product.id]) {
+            const data = manifest[product.id];
+            product.images = data.images.map(img => `./assets/images/EuropaWatersClothingLine_compressed/${data.folder}/full/${img}`);
+          }
+        });
+        
+        initHeroView();
+        initAllImagesView();
+      } catch (error) {
+        console.error('Failed to load images manifest:', error);
+      }
     });
   </script>
 </body>

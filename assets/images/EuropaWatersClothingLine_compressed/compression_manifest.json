@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-07-23T15:45:16.036168",
+  "source": "/Users/gregorykojadinovichii/Europa Waters/GitWebsite/assets/EuropaWatersClothingLine",
+  "output": "/Users/gregorykojadinovichii/Europa Waters/GitWebsite/assets/EuropaWatersClothingLine_compressed",
+  "settings": {
+    "format": "webp",
+    "quality": 85,
+    "size_modes": [
+      "full"
+    ]
+  },
+  "statistics": {
+    "total_files": 519,
+    "compressed": 519,
+    "failed": 0,
+    "original_size_mb": 1069.3248796463013,
+    "compressed_size_mb": 24.917312622070312
+  }
+}

@@ -249,58 +249,136 @@
       transform: scale(0.98);
     }
     
-    /* ALL IMAGES VIEW */
-    .all-images-grid {
-      display: none;
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      gap: 12px;
+    /* ALL IMAGES VIEW - PRODUCT GRID */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1rem;
       margin-bottom: 40px;
     }
     
-    .all-images-grid.active {
-      display: grid;
-    }
-    
-    @media (min-width: 768px) {
-      .all-images-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      }
-    }
-    
-    .image-item {
+    .product-square {
+      position: relative;
       aspect-ratio: 1;
-      border-radius: 8px;
+      border-radius: 12px;
+      border: 2px solid rgba(212, 175, 55, 0.3);
+      background: rgba(212, 175, 55, 0.03);
       overflow: hidden;
-      background: #0b1729;
-      border: 1px solid rgba(74, 144, 226, 0.18);
       cursor: pointer;
-      transition: transform 0.2s ease, border-color 0.2s ease;
+      transition: all 0.3s ease;
     }
     
-    .image-item:active {
-      transform: scale(0.95);
+    .product-square:hover {
+      border-color: rgba(212, 175, 55, 0.7);
+      background: rgba(212, 175, 55, 0.08);
+      box-shadow: 0 4px 16px rgba(212, 175, 55, 0.15);
+      transform: translateY(-4px);
     }
     
-    .image-item:hover {
-      border-color: #4a9fe2;
-    }
-    
-    .image-item img {
+    .product-square img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
     
-    .image-label {
+    .product-square-label {
       position: absolute;
-      bottom: 4px;
-      left: 4px;
-      background: rgba(0, 0, 0, 0.8);
-      color: #fff;
-      padding: 2px 6px;
-      font-size: 11px;
-      font-weight: 600;
-      border-radius: 3px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: #faf4e6;
+      padding: 12px 10px 8px;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.3;
+    }
+    
+    /* PRODUCT DETAIL MODAL */
+    #product-detail-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 9000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    #product-detail-modal.active {
+      display: flex;
+    }
+    
+    .product-detail-content {
+      position: relative;
+      width: 100%;
+      max-width: 90vw;
+      max-height: 90vh;
+      background: #050d1a;
+      border-radius: 12px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      overflow: auto;
+      padding: 30px;
+    }
+    
+    .product-detail-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    
+    .product-detail-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #d4af37;
+    }
+    
+    .product-detail-close {
+      background: rgba(212, 175, 55, 0.2);
+      color: #d4af37;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 24px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .product-detail-close:hover {
+      background: rgba(212, 175, 55, 0.4);
+    }
+    
+    .product-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+    }
+    
+    .product-detail-img {
+      aspect-ratio: 1;
+      border-radius: 8px;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      overflow: hidden;
+      background: #000;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .product-detail-img:hover {
+      border-color: rgba(212, 175, 55, 0.6);
+      transform: scale(1.05);
+    }
+    
+    .product-detail-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     
     /* PRODUCT SECTION */
@@ -333,6 +411,17 @@
     <div id="allImagesView" class="all-images-grid"></div>
   </div>
   
+  <!-- Product Detail Modal -->
+  <div id="product-detail-modal">
+    <div class="product-detail-content">
+      <div class="product-detail-header">
+        <h2 class="product-detail-title" id="product-detail-title">Product Name</h2>
+        <button class="product-detail-close" id="product-detail-close">×</button>
+      </div>
+      <div class="product-detail-grid" id="product-detail-grid"></div>
+    </div>
+  </div>
+  
   <script>
     // CSV DATA - All 11 products (folder mapping for compressed images)
     const productsData = [
@@ -351,7 +440,7 @@
     
     const baseUrl = './assets/EuropaWatersClothingLine_compressed/';
     const CAROUSEL_INTERVAL = 4500; // 4.5 seconds
-    const HERO_IMAGES_COUNT = 6;
+    const HERO_IMAGES_COUNT = null; // null = all images
     
     // Product folder mapping
     const productFolderMap = {
@@ -374,7 +463,7 @@
         this.container = document.getElementById(containerId);
         this.currentIndex = 0;
         this.autoAdvanceTimer = null;
-        this.heroImages = product.images.slice(0, HERO_IMAGES_COUNT);
+        this.heroImages = HERO_IMAGES_COUNT ? product.images.slice(0, HERO_IMAGES_COUNT) : product.images;
         this.init();
       }
       
@@ -507,52 +596,81 @@
       });
     }
     
-    // Initialize all images view
+    // Initialize all images view (product grid)
     function initAllImagesView() {
       const allImagesView = document.getElementById('allImagesView');
       allImagesView.innerHTML = '';
       
+      const grid = document.createElement('div');
+      grid.className = 'products-grid';
+      
       productsData.forEach(product => {
-        const productSection = document.createElement('div');
-        productSection.className = 'product-section';
+        const square = document.createElement('div');
+        square.className = 'product-square';
         
-        const title = document.createElement('div');
-        title.className = 'section-title';
-        title.textContent = product.name;
-        productSection.appendChild(title);
+        // Use first image as hero
+        const heroImg = product.images[0] || '';
+        const productName = product.name.split(' ').slice(0, 3).join(' '); // First 3 words
         
-        const grid = document.createElement('div');
-        grid.className = 'all-images-grid active';
+        square.innerHTML = `
+          <img src="${heroImg}" alt="${product.name}" loading="lazy" />
+          <div class="product-square-label">${productName}</div>
+        `;
         
-        product.images.forEach((img, idx) => {
-          const item = document.createElement('div');
-          item.className = 'image-item';
-          item.style.position = 'relative';
-          item.innerHTML = `
-            <img src="${img}" alt="${product.name} - Image ${idx + 1}" loading="lazy" />
-            <div class="image-label">#${idx + 1}</div>
-          `;
-          grid.appendChild(item);
-        });
-        
-        productSection.appendChild(grid);
-        allImagesView.appendChild(productSection);
+        square.addEventListener('click', () => showProductDetail(product));
+        grid.appendChild(square);
       });
+      
+      allImagesView.appendChild(grid);
     }
+    
+    // Show product detail modal
+    function showProductDetail(product) {
+      const modal = document.getElementById('product-detail-modal');
+      const title = document.getElementById('product-detail-title');
+      const grid = document.getElementById('product-detail-grid');
+      
+      title.textContent = product.name;
+      grid.innerHTML = '';
+      
+      product.images.forEach((img, idx) => {
+        const item = document.createElement('div');
+        item.className = 'product-detail-img';
+        item.innerHTML = `<img src="${img}" alt="${product.name} - Image ${idx + 1}" loading="lazy" />`;
+        grid.appendChild(item);
+      });
+      
+      modal.classList.add('active');
+    }
+    
+    // Close modal
+    function closeProductDetail() {
+      document.getElementById('product-detail-modal').classList.remove('active');
+    }
+    
+    // Modal event listeners
+    document.getElementById('product-detail-close').addEventListener('click', closeProductDetail);
+    document.getElementById('product-detail-modal').addEventListener('click', (e) => {
+      if (e.target.id === 'product-detail-modal') closeProductDetail();
+    });
     
     // View toggle
     document.getElementById('heroViewBtn').addEventListener('click', function() {
       this.classList.add('active');
       document.getElementById('allImagesBtn').classList.remove('active');
       document.getElementById('heroView').style.display = 'grid';
-      document.getElementById('allImagesView').style.display = 'none';
+      document.getElementById('allImagesView').style.display = 'block';
+      document.getElementById('allImagesView').innerHTML = '';
+      initHeroView();
     });
     
     document.getElementById('allImagesBtn').addEventListener('click', function() {
       this.classList.add('active');
       document.getElementById('heroViewBtn').classList.remove('active');
       document.getElementById('heroView').style.display = 'none';
-      document.getElementById('allImagesView').style.display = 'grid';
+      document.getElementById('allImagesView').style.display = 'block';
+      document.getElementById('allImagesView').innerHTML = '';
+      initAllImagesView();
     });
     
     // Initialize on load
@@ -571,7 +689,6 @@
         });
         
         initHeroView();
-        initAllImagesView();
       } catch (error) {
         console.error('Failed to load images manifest:', error);
       }

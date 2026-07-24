@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Europa Waters - Clothing Collection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
@@ -20,12 +23,51 @@
       margin: 0 auto;
       background: rgba(212, 175, 55, 0.03);
       border: 2px solid rgba(212, 175, 55, 0.38);
+      padding: 8px;
+      border-radius: 12px;
+      box-shadow: 
+        0 0 0 4px rgba(212, 175, 55, 0.07),
+        0 4px 28px rgba(212, 175, 55, 0.1),
+        0 2px 10px rgba(0, 0, 0, 0.14);
+    }
+    
+    .content-wrapper {
+      background: rgba(212, 175, 55, 0.03);
+      border: 2px solid rgba(212, 175, 55, 0.38);
       padding: 40px;
       border-radius: 12px;
       box-shadow: 
         0 0 0 4px rgba(212, 175, 55, 0.07),
         0 4px 28px rgba(212, 175, 55, 0.1),
         0 2px 10px rgba(0, 0, 0, 0.14);
+    }
+    
+    .container-logo {
+      text-align: center;
+      padding: 12px;
+    }
+    
+    .container-logo img {
+      max-width: 200px;
+      height: auto;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+      display: block;
+      margin: 0 auto 16px;
+    }
+    
+    .container-logo img:hover {
+      opacity: 1;
+    }
+    
+    .container-logo-text {
+      font-family: 'Space Grotesk', -apple-system, sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: rgba(212, 175, 55, 0.85);
+      text-transform: uppercase;
+      margin: 0;
     }
     
     header {
@@ -588,18 +630,24 @@
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>Europa Waters Clothing Collection</h1>
-      <p class="subtitle">Curated designs inspired by nature and science</p>
-    </header>
-    
-    <div class="view-toggle">
-      <button class="view-btn active" id="heroViewBtn">Hero View</button>
-      <button class="view-btn" id="allImagesBtn">All Images</button>
+    <div class="container-logo">
+      <p class="container-logo-text">Europa Waters</p>
+      <img src="./assets/images/europawaterslogooo.png" alt="Europa Waters Logo" />
     </div>
-    
-    <div id="heroView" class="hero-grid"></div>
-    <div id="allImagesView" class="all-images-grid"></div>
+    <div class="content-wrapper">
+      <header>
+        <h1>Europa Waters Clothing Collection</h1>
+        <p class="subtitle">Curated designs inspired by nature and science</p>
+      </header>
+      
+      <div class="view-toggle">
+        <button class="view-btn active" id="heroViewBtn">Hero View</button>
+        <button class="view-btn" id="allImagesBtn">All Images</button>
+      </div>
+      
+      <div id="heroView" class="hero-grid"></div>
+      <div id="allImagesView" class="all-images-grid"></div>
+    </div>
   </div>
   
   <!-- Product Detail Modal -->

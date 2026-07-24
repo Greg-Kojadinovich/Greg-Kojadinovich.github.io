@@ -289,6 +289,7 @@
     }
     
     .shop-btn {
+      display: block;
       width: 100%;
       padding: 12px;
       background: #4a9fe2;
@@ -299,6 +300,13 @@
       font-size: 14px;
       cursor: pointer;
       transition: all 0.3s ease;
+      text-decoration: none;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    
+    .shop-btn:hover {
+      background: #357fc9;
     }
     
     .shop-btn:active {
@@ -683,17 +691,17 @@
   <script>
     // CSV DATA - All 11 products (folder mapping for compressed images)
     const productsData = [
-      { id: "product_bda2737e-74fe-4ad5-b1e1-b6405f089c96", name: "Wandering Fern Unisex Hoodie", price: "$30.50", folder: "WanderingFern_hoodie", images: [] },
-      { id: "product_7e8f2d1a-9c3b-4e5f-a2d8-c1b5f7e9d3a1", name: "Europa Flower Unisex Hoodie", price: "$37.00", folder: "europaflower_hoodie", images: [] },
-      { id: "product_5a2f1c9b-8d7e-4c3a-b1f9-e7d5c2a8b6f3", name: "Our North Stars Unisex Classic Tee", price: "$15.00", folder: "OurNorthStars_tee", images: [] },
-      { id: "product_9d3b8f1c-2e5a-4b7f-c8d1-a3f5e7b9c2d6", name: "Hummingbird Floral Skater Dress", price: "$42.95", folder: "Hummingbird_dress", images: [] },
-      { id: "product_3c7e2a1f-6b9d-4e8a-f5c2-b1d7e3a9f5c8", name: "Under Armour Athletic T-Shirt", price: "$35.50", folder: "jupiterandmoons_tee", images: [] },
-      { id: "product_8b5f3d2c-9a7e-4c1b-e6f2-d5a8c1b7e3f9", name: "Europa Waters Unisex Hoodie", price: "$39.00", folder: "europawaters_hoodie", images: [] },
-      { id: "product_2d8c5a3b-7e1f-4a9c-d7b4-f2c8e1a6d5b9", name: "Europa Waters Unisex Sweatshirt", price: "$32.00", folder: "europawaters_crewhoodie", images: [] },
-      { id: "product_1a6f4e2b-8d3c-4f7a-c5e1-b9a2f8d4c7e3", name: "Europa Waters Unisex Classic Tee", price: "$17.50", folder: "europawaters_tee", images: [] },
-      { id: "product_7c2a5d1e-3f8b-4e9c-a7d2-f4b6e1c8d5a9", name: "Jupiter and Galilean Moons Premium Sweatshirt", price: "$45.00", folder: "jupiterandmoons_crewhoodie", images: [] },
-      { id: "product_4b8d3f2a-6c5e-4a7b-d1f9-e8c2b5a7d4c6", name: "Kepler's First Law", price: "$38.24", folder: "keplersfirstlaw_hoodie", images: [] },
-      { id: "product_9e7a2c1d-4f6b-4c8e-b3a5-c9d1e7f2a8b4", name: "Europa Flower Crew Neck Sweatshirt", price: "$23.35", folder: "europaflower_crewhoodie", images: [] }
+      { id: "product_8b5f3d2c-9a7e-4c1b-e6f2-d5a8c1b7e3f9", name: "europa waters unisex hoodie", price: "$34.50", folder: "europawaters_hoodie", link: "https://www.europawaters.xyz/product-page/europa-waters-unisex-hoodie", images: [] },
+      { id: "product_2d8c5a3b-7e1f-4a9c-d7b4-f2c8e1a6d5b9", name: "europa waters unisex sweatshirt", price: "$32.00", folder: "europawaters_crewhoodie", link: "https://www.europawaters.xyz/product-page/europa-waters-unisex-sweatshirt", images: [] },
+      { id: "product_1a6f4e2b-8d3c-4f7a-c5e1-b9a2f8d4c7e3", name: "europa waters unisex classic tee", price: "$17.50", folder: "europawaters_tee", link: "https://www.europawaters.xyz/product-page/europa-waters-unisex-classic-tee", images: [] },
+      { id: "product_7c2a5d1e-3f8b-4e9c-a7d2-f4b6e1c8d5a9", name: "jupiter and galilean moons unisex premium sweatshirt", price: "$32.50", folder: "jupiterandmoons_crewhoodie", link: "https://www.europawaters.xyz/product-page/jupiter-and-galilean-moons-unisex-premium-sweatshirt", images: [] },
+      { id: "product_7e8f2d1a-9c3b-4e5f-a2d8-c1b5f7e9d3a1", name: "europa flower unisex hoodie", price: "$37.00", folder: "europaflower_hoodie", link: "https://www.europawaters.xyz/product-page/europa-flower-unisex-hoodie", images: [] },
+      { id: "product_9e7a2c1d-4f6b-4c8e-b3a5-c9d1e7f2a8b4", name: "europa flower crew neck sweatshirt", price: "$23.35", folder: "europaflower_crewhoodie", link: "https://www.europawaters.xyz/product-page/europa-flower-crew-neck-sweatshirt", images: [] },
+      { id: "product_4b8d3f2a-6c5e-4a7b-d1f9-e8c2b5a7d4c6", name: "kepler's first law", price: "$38.24", folder: "keplersfirstlaw_hoodie", link: "https://www.europawaters.xyz/product-page/kepler-s-first-law", images: [] },
+      { id: "product_5a2f1c9b-8d7e-4c3a-b1f9-e7d5c2a8b6f3", name: "our north stars unisex classic tee", price: "$15.00", folder: "OurNorthStars_tee", link: "https://www.europawaters.xyz/product-page/unisex-classic-tee", images: [] },
+      { id: "product_9d3b8f1c-2e5a-4b7f-c8d1-a3f5e7b9c2d6", name: "hummingbird floral skater dress", price: "$42.95", folder: "Hummingbird_dress", link: "https://www.europawaters.xyz/product-page/hummingbird-floral-skater-dress", images: [] },
+      { id: "product_3c7e2a1f-6b9d-4e8a-f5c2-b1d7e3a9f5c8", name: "under armour® athletic t-shirt", price: "$35.50", folder: "jupiterandmoons_tee", link: "https://www.europawaters.xyz/product-page/under-armour-athletic-t-shirt", images: [] },
+      { id: "product_bda2737e-74fe-4ad5-b1e1-b6405f089c96", name: "wandering fern unisex hoodie", price: "$31.00", folder: "WanderingFern_hoodie", link: "https://www.europawaters.xyz/product-page/wandering-fern-unisex-hoodie", images: [] }
     ];
     
     const baseUrl = './assets/EuropaWatersClothingLine_compressed/';
@@ -721,7 +729,8 @@
         this.container = document.getElementById(containerId);
         this.currentIndex = 0;
         this.autoAdvanceTimer = null;
-        this.heroImages = HERO_IMAGES_COUNT ? product.images.slice(0, HERO_IMAGES_COUNT) : product.images;
+        // Use heroPhotos from CSV if available, otherwise use first HERO_IMAGES_COUNT images
+        this.heroImages = product.heroPhotos || (HERO_IMAGES_COUNT ? product.images.slice(0, HERO_IMAGES_COUNT) : product.images);
         this.init();
       }
       
@@ -755,7 +764,7 @@
           <div class="product-info">
             <div class="product-name">${this.product.name}</div>
             <div class="product-price">${this.product.price}</div>
-            <button class="shop-btn">Shop Now</button>
+            <a href="${this.product.link}" class="shop-btn">${this.product.name}</a>
           </div>
         `;
         
@@ -1021,6 +1030,50 @@
       initAllImagesView();
     });
     
+    // Parse CSV and extract hero photos
+    function parseHeroCSV(csvText) {
+      const lines = csvText.trim().split('\n');
+      const heroPhotos = {};
+      
+      // Header is at line 3 (0-indexed)
+      const headerLine = lines[3];
+      const headers = headerLine.split(',').map(h => h.trim());
+      
+      // Map column index to product by exact name match
+      const columnToProduct = {};
+      headers.forEach((header, colIdx) => {
+        if (colIdx <= 1 || !header) return; // Skip empty and "Photos - Hero"
+        
+        // Find product with exact name match
+        const matchedProduct = productsData.find(p => p.name === header);
+        if (matchedProduct) {
+          columnToProduct[colIdx] = matchedProduct.id;
+        }
+      });
+      
+      // Extract hero photos for each product (rows 4-13 = 10 photos)
+      for (let rowIdx = 4; rowIdx < 14; rowIdx++) {
+        if (rowIdx < lines.length) {
+          const row = lines[rowIdx].split(',').map(cell => cell.trim());
+          
+          // For each mapped column
+          for (const colIdx in columnToProduct) {
+            const productId = columnToProduct[colIdx];
+            const photoFilename = row[colIdx];
+            
+            if (photoFilename) {
+              if (!heroPhotos[productId]) {
+                heroPhotos[productId] = [];
+              }
+              heroPhotos[productId].push(photoFilename);
+            }
+          }
+        }
+      }
+      
+      return heroPhotos;
+    }
+    
     // Initialize on load
     window.addEventListener('DOMContentLoaded', async () => {
       try {
@@ -1036,9 +1089,23 @@
           }
         });
         
+        // Load hero photos CSV
+        const csvResponse = await fetch('./clothingline_hero_europawaters.csv');
+        const csvText = await csvResponse.text();
+        const heroPhotos = parseHeroCSV(csvText);
+        
+        // Store hero photos for each product (for use in ProductCarousel)
+        productsData.forEach(product => {
+          if (heroPhotos[product.id]) {
+            product.heroPhotos = heroPhotos[product.id].map(filename => 
+              `./assets/images/EuropaWatersClothingLine_compressed/${product.folder}/full/${filename}`
+            );
+          }
+        });
+        
         initHeroView();
       } catch (error) {
-        console.error('Failed to load images manifest:', error);
+        console.error('Failed to load images:', error);
       }
     });
   </script>

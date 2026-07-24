@@ -32,6 +32,7 @@
     <div class="nav-collapse">
     <ul class="nav-links">
       <li><a href="index.html" class="nav-active">Home</a></li>
+      <li><a href="ClothingLine.html">Clothing Line</a></li>
       <li><a href="https://www.europawaters.xyz/category/merchandise" target="_blank" rel="noopener">Europa Waters ↗</a></li>
       <li><a href="engineering.html">Engineering</a></li>
       <li><a href="software.html">Software</a></li>
@@ -82,6 +83,65 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
+    WIX NOTES — PROJECTS PREVIEW SECTION
+    Wix: Add Section → 2-column layout (1/3 : 2/3)
+    Background: dark #050d1a
+    Left: section label + title + description + button
+    Right: 2 project cards stacked
+    Cards: background #0b1729, border 1px rgba(74,159,226,0.2)
+  ════════════════════════════════════════════ -->
+  <section class="section dark-section projects-preview-section">
+    <div class="container projects-preview-inner">
+      <div class="projects-preview-left">
+        <div class="section-label">Software</div>
+        <h2 class="section-title" style="font-size: 2rem;">Built With Curiosity</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 28px;">
+          iOS apps and machine learning projects — designed to be useful,
+          honest, and well-crafted. PleinColorWheel is free on the App Store.
+          Chess App and OhCalories are on the way.
+        </p>
+        <a href="engineering.html" class="btn btn-primary">See All Projects</a>
+      </div>
+      <div class="projects-preview-right">
+        <div class="mini-project-card">
+          <div class="mini-project-header">
+            <img src="assets/images/AppIcon.png" alt="PleinColorWheel" class="mini-project-logo" style="width: 48px; height: 48px; border-radius: 8px;" />
+            <div>
+              <h4>PleinColorWheel</h4>
+              <p>SwiftUI · iOS · RYB Color Theory</p>
+            </div>
+            <span class="mini-badge live-badge">Live</span>
+          </div>
+          <p class="mini-project-desc">Free iOS app for painters learning color theory using real subtractive RYB pigment mixing.</p>
+          <a href="https://apps.apple.com/us/app/pleincolorwheel/id6790414651" target="_blank" rel="noopener" class="mini-link">App Store &rarr;</a>
+        </div>
+        <div class="mini-project-card">
+          <div class="mini-project-header">
+            <span class="mini-project-icon">&#x265E;</span>
+            <div>
+              <h4>Chess App</h4>
+              <p>iOS · Swift · Game Dev</p>
+            </div>
+            <span class="mini-badge soon-badge">Soon</span>
+          </div>
+          <p class="mini-project-desc">A chess application in active development. Stay tuned.</p>
+        </div>
+        <div class="mini-project-card">
+          <div class="mini-project-header">
+            <span class="mini-project-icon">&#x1F34E;</span>
+            <div>
+              <h4>OhCalories</h4>
+              <p>iOS · Health &amp; Fitness</p>
+            </div>
+            <span class="mini-badge soon-badge">Soon</span>
+          </div>
+          <p class="mini-project-desc">Weight loss and fitness app. Calorie tracking made intuitive and motivating.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
     WIX NOTES — BRAND STATEMENT STRIP
     Wix: Add Section → use a 1-column centered strip
     Background: white (#ffffff)
@@ -90,6 +150,39 @@
     This is the "transition" between dark hero and light content
   ════════════════════════════════════════════ -->
   <section class="brand-strip">
+    <div class="container brand-strip-inner">
+      <div class="brand-accent-line"></div>
+      <blockquote class="brand-quote">
+        "Europa Waters ~ possibly the nucleation point of all life in our solar system."
+      </blockquote>
+      <p class="brand-desc">
+        Founded by Greg Kojadinovich II.
+        Europa Waters exists at the intersection of rigorous science and human creativity.
+        We build things that matter: from original art and literature to iOS apps and
+        AI systems.
+      </p>
+      <div class="brand-stats">
+        <div class="stat-item">
+          <span class="stat-number">18</span>
+          <span class="stat-label">Products in Shop</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">8+</span>
+          <span class="stat-label">Years Engineering</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">Top 1%</span>
+          <span class="stat-label">Kaggle ML Model</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">Silver</span>
+          <span class="stat-label">AIMO3 Medalist</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
     <div class="container brand-strip-inner">
       <div class="brand-accent-line"></div>
       <blockquote class="brand-quote">
@@ -165,136 +258,6 @@
           <a href="services.html#contact" class="pillar-link">Hire Greg &rarr;</a>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════
-    WIX NOTES — FEATURED SHOP SECTION
-    Wix: Add Section → use Wix Stores "Featured Products" widget
-    Set to show 4 products in a row
-    Background: white
-    Title: Space Grotesk Bold 36px
-    Product card hover: subtle lift shadow
-    "Shop All" button: outline style, centered below grid
-  ════════════════════════════════════════════ -->
-  <section class="light-section shop-section">
-    <div class="container">
-      <div class="section-header-row">
-        <div>
-          <div class="section-label dark-label">Original Designs</div>
-          <h2 class="section-title dark-title">Featured Products</h2>
-        </div>
-        <a href="https://www.europawaters.xyz/category/merchandise" class="btn btn-outline-dark">Shop All</a>
-      </div>
-
-      <div class="shop-grid">
-        <div class="shop-card">
-          <div class="shop-img-placeholder wave-bg">
-            <span class="shop-placeholder-icon">&#x1F455;</span>
-          </div>
-          <div class="shop-card-body">
-            <p class="shop-category">Apparel</p>
-            <h4>Europa Waters Unisex Classic Tee</h4>
-            <p class="shop-price">$17.50</p>
-            <a href="https://www.europawaters.xyz/product-page/europa-waters-unisex-classic-tee" class="btn btn-outline-dark btn-sm shop-btn">Add to Cart</a>
-          </div>
-        </div>
-
-        <div class="shop-card">
-          <div class="shop-img-placeholder science-bg">
-            <span class="shop-placeholder-icon">&#x1FA90;</span>
-          </div>
-          <div class="shop-card-body">
-            <p class="shop-category">Apparel</p>
-            <h4>Jupiter &amp; Galilean Moons Sweatshirt</h4>
-            <p class="shop-price">$32.50</p>
-            <a href="https://www.europawaters.xyz/product-page/jupiter-and-galilean-moons-unisex-premium-sweatshirt" class="btn btn-outline-dark btn-sm shop-btn">Add to Cart</a>
-          </div>
-        </div>
-
-        <div class="shop-card">
-          <div class="shop-img-placeholder art-bg">
-            <span class="shop-placeholder-icon">&#x1F338;</span>
-          </div>
-          <div class="shop-card-body">
-            <p class="shop-category">Apparel</p>
-            <h4>Europa Flower Organic Raglan Sweatshirt</h4>
-            <p class="shop-price">$38.00</p>
-            <a href="https://www.europawaters.xyz/product-page/europa-flower-unisex-organic-raglan-sweatshirt" class="btn btn-outline-dark btn-sm shop-btn">Add to Cart</a>
-          </div>
-        </div>
-
-        <div class="shop-card">
-          <div class="shop-img-placeholder book-bg">
-            <span class="shop-placeholder-icon">&#x1F40D;</span>
-          </div>
-          <div class="shop-card-body">
-            <p class="shop-category">Digital Book</p>
-            <h4>The Snake That Couldn't Bite Big</h4>
-            <p class="shop-price">$8.00</p>
-            <a href="https://www.europawaters.xyz/product-page/the-snake-that-couldn-t-bite-big" class="btn btn-outline-dark btn-sm shop-btn">Add to Cart</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════
-    WIX NOTES — PROJECTS PREVIEW SECTION
-    Wix: Add Section → 2-column layout (1/3 : 2/3)
-    Background: dark #050d1a
-    Left: section label + title + description + button
-    Right: 2 project cards stacked
-    Cards: background #0b1729, border 1px rgba(74,159,226,0.2)
-  ════════════════════════════════════════════ -->
-  <section class="section dark-section projects-preview-section">
-    <div class="container projects-preview-inner">
-      <div class="projects-preview-left">
-        <div class="section-label">Software</div>
-        <h2 class="section-title" style="font-size: 2rem;">Built With Curiosity</h2>
-        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 28px;">
-          iOS apps and machine learning projects — designed to be useful,
-          honest, and well-crafted. PleinColorWheel is free on the App Store.
-          Chess App and OhCalories are on the way.
-        </p>
-        <a href="engineering.html" class="btn btn-primary">See All Projects</a>
-      </div>
-      <div class="projects-preview-right">
-        <div class="mini-project-card">
-          <div class="mini-project-header">
-            <img src="assets/images/AppIcon.png" alt="PleinColorWheel" class="mini-project-logo" style="width: 48px; height: 48px; border-radius: 8px;" />
-            <div>
-              <h4>PleinColorWheel</h4>
-              <p>SwiftUI · iOS · RYB Color Theory</p>
-            </div>
-            <span class="mini-badge live-badge">Live</span>
-          </div>
-          <p class="mini-project-desc">Free iOS app for painters learning color theory using real subtractive RYB pigment mixing.</p>
-          <a href="https://apps.apple.com/us/app/pleincolorwheel/id6790414651" target="_blank" rel="noopener" class="mini-link">App Store &rarr;</a>
-        </div>
-        <div class="mini-project-card">
-          <div class="mini-project-header">
-            <span class="mini-project-icon">&#x265E;</span>
-            <div>
-              <h4>Chess App</h4>
-              <p>iOS · Swift · Game Dev</p>
-            </div>
-            <span class="mini-badge soon-badge">Soon</span>
-          </div>
-          <p class="mini-project-desc">A chess application in active development. Stay tuned.</p>
-        </div>
-        <div class="mini-project-card">
-          <div class="mini-project-header">
-            <span class="mini-project-icon">&#x1F34E;</span>
-            <div>
-              <h4>OhCalories</h4>
-              <p>iOS · Health &amp; Fitness</p>
-            </div>
-            <span class="mini-badge soon-badge">Soon</span>
-          </div>
-          <p class="mini-project-desc">Weight loss and fitness app. Calorie tracking made intuitive and motivating.</p>
-        </div>
       </div>
     </div>
   </section>

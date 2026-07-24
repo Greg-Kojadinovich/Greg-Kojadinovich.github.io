@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Europa Waters - Clothing Collection</title>
+  <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
@@ -638,6 +639,31 @@
   </style>
 </head>
 <body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <a class="nav-brand" href="index.html">
+      <span class="nav-logo-dot"></span>
+      <span class="nav-brand-text">EUROPA WATERS LLC</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-collapse">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="ClothingLine.html" class="nav-active">Clothing Line</a></li>
+        <li><a href="https://www.europawaters.xyz/category/merchandise" target="_blank" rel="noopener">Europa Waters ↗</a></li>
+        <li><a href="engineering.html">Engineering</a></li>
+        <li><a href="software.html">Software</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="space.html">Space</a></li>
+        <li><a href="color-wheel.html">Color Wheel</a></li>
+      </ul>
+      <a href="services.html#contact" class="btn btn-primary btn-sm">Hire Greg</a>
+    </div>
+  </nav>
   <div class="container">
     <div class="container-logo">
       <p class="container-logo-text">Europa Waters</p>
@@ -1109,5 +1135,6 @@
       }
     });
   </script>
+  <script src="js/controllers/nav.js"></script>
 </body>
 </html>

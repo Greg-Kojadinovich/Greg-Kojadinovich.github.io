@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=1080" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PleinColorWheel LinkedIn Infographic V6 — Europa Waters</title>
   <style>
     :root {
@@ -27,10 +27,23 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 32px 16px 64px;
+      padding: 32px 0 64px; /* no side padding — scaler fills full viewport width */
       font-family: "Avenir Next", "Inter", "Helvetica Neue", Arial, sans-serif;
       overflow-x: hidden;        /* prevent horizontal scroll on mobile */
       touch-action: pan-y;       /* tell iOS: vertical scroll only */
+    }
+
+    /* ── Scaler wrapper: reserves the correct scaled height in document flow
+       so the page scrolls to the right length. The poster inside is
+       transformed visually; overflow:hidden clips the 1080px layout box
+       cleanly to the wrapper's width.                                   ── */
+    .poster-scaler {
+      width: 100%;
+      height: var(--scaled-height, 3380px);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;  /* center poster horizontally on wide screens */
+      align-items: flex-start;
     }
 
     .poster {
@@ -43,8 +56,9 @@
       box-shadow:
         0 0 0 1px rgba(0,0,0,0.6),
         0 40px 120px rgba(0,0,0,0.7);
-      /* ── Mobile scale mode: zoom affects layout, no dead-space hack needed ── */
-      zoom: var(--poster-scale, 1);
+      transform-origin: top center; /* scale from horizontal center, top edge */
+      transform: scale(var(--poster-scale, 1));
+      flex-shrink: 0;               /* flex must not squish the 1080px poster */
     }
 
     /* ─── FLOWER ─── */
@@ -296,8 +310,17 @@
     .footer-bar .domain { font-size: 13px; color: var(--ink-dim); letter-spacing: 0.06em; }
     .footer-bar .platform { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-dim); }
 
+    /* ── Mobile GPU: reduce expensive 5-layer moon shadow ── */
+    @media (max-width: 899px) {
+      .moon-img {
+        filter:
+          drop-shadow(0 0 20px rgba(74,144,226,0.70))
+          drop-shadow(0 0 50px rgba(74,159,226,0.40));
+      }
+    }
+
     /* ─────────────────────────────────────────────────────────────
-       OPTION B — RESPONSIVE REFLOW  (≤ 899 px)
+       OPTION B — kept as reference only (scaler handles all sizes now)
        .layer elements leave absolute-position mode and stack in
        DOM order as normal block/flex children. Desktop layout
        (≥ 900 px) is completely unchanged.
@@ -400,6 +423,7 @@
 </head>
 <body>
 
+<div class="poster-scaler">
 <main class="poster">
 
   <!-- FLOWER -->
@@ -601,6 +625,7 @@
   </div>
 
 </main>
+</div><!-- /.poster-scaler -->
 
 <script>
   /* ── Scale the 1080px poster to fit the viewport on mobile ──
@@ -608,9 +633,13 @@
      sees a correctly-sized page and vertical scroll just works.         ── */
   (function scalePoster() {
     var POSTER_W = 1080;
+    var POSTER_H = 3380;
     function apply() {
       var scale = Math.min(1, window.innerWidth / POSTER_W);
-      document.documentElement.style.setProperty('--poster-scale', scale);
+      var root  = document.documentElement;
+      root.style.setProperty('--poster-scale', scale);
+      /* Wrapper height = scaled poster height → correct page scroll length */
+      root.style.setProperty('--scaled-height', Math.round(POSTER_H * scale) + 'px');
     }
     apply();
     window.addEventListener('resize', apply);

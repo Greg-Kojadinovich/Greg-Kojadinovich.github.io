@@ -43,10 +43,8 @@
       box-shadow:
         0 0 0 1px rgba(0,0,0,0.6),
         0 40px 120px rgba(0,0,0,0.7);
-      /* ── Mobile scale mode: shrinks the whole poster to fit viewport ── */
-      transform-origin: top center;
-      transform: scale(var(--poster-scale, 1));
-      margin-bottom: var(--poster-mb, 0px); /* collapse dead space after scale */
+      /* ── Mobile scale mode: zoom affects layout, no dead-space hack needed ── */
+      zoom: var(--poster-scale, 1);
     }
 
     /* ─── FLOWER ─── */
@@ -514,16 +512,14 @@
 </main>
 
 <script>
-  /* ── Scale the 1080px poster to fit the viewport on mobile ── */
+  /* ── Scale the 1080px poster to fit the viewport on mobile ──
+     zoom (unlike transform:scale) resizes the layout box, so iOS Safari
+     sees a correctly-sized page and vertical scroll just works.         ── */
   (function scalePoster() {
-    var POSTER_H = 3380;
     var POSTER_W = 1080;
     function apply() {
       var scale = Math.min(1, window.innerWidth / POSTER_W);
-      var root  = document.documentElement;
-      root.style.setProperty('--poster-scale', scale);
-      // Negative margin collapses the unused layout space below the scaled poster
-      root.style.setProperty('--poster-mb', Math.round(POSTER_H * scale - POSTER_H) + 'px');
+      document.documentElement.style.setProperty('--poster-scale', scale);
     }
     apply();
     window.addEventListener('resize', apply);

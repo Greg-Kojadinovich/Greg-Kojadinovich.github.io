@@ -39,16 +39,13 @@
        cleanly to the wrapper's width.                                   ── */
     .poster-scaler {
       width: 100%;
-      height: var(--scaled-height, 3380px);
       overflow: hidden;
-      display: flex;
-      justify-content: center;  /* center poster horizontally on wide screens */
-      align-items: flex-start;
     }
 
     .poster {
-      width: 1080px;
-      min-height: 3380px;
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
       position: relative;
       overflow: hidden;
       background: var(--bg);
@@ -56,9 +53,7 @@
       box-shadow:
         0 0 0 1px rgba(0,0,0,0.6),
         0 40px 120px rgba(0,0,0,0.7);
-      transform-origin: top center; /* scale from horizontal center, top edge */
-      transform: scale(var(--poster-scale, 1));
-      flex-shrink: 0;               /* flex must not squish the 1080px poster */
+      padding: 52px 62px 80px;
     }
 
     /* ─── FLOWER ─── */
@@ -151,15 +146,15 @@
 
     /* ─── GOLD RULE ─── */
     .gold-rule {
-      position: absolute; left: 62px; right: 62px; height: 1px;
+      display: block; width: 100%; height: 1px;
       background: linear-gradient(90deg, transparent 0%, var(--gold-border) 20%, rgba(212,175,55,0.55) 50%, var(--gold-border) 80%, transparent 100%);
-      z-index: 5;
+      margin: 40px 0;
     }
 
-    .layer { position: absolute; z-index: 5; }
+    .layer { position: relative; z-index: 5; }
 
     /* ─── LOGO ─── */
-    .logo { top: 52px; left: 62px; display: flex; align-items: center; gap: 12px; }
+    .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
     .logo-img {
       width: 56px; height: 56px; object-fit: contain; border-radius: 10px;
       border: 1px solid var(--gold-border); background: rgba(0,0,0,0.22); padding: 5px;
@@ -169,11 +164,15 @@
     .logo-brand { font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
     .logo-tagline { font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--ink-dim); font-weight: 500; }
 
-    /* ─── HERO ─── */
-    .hero-block { top: 150px; left: 62px; width: 740px; }
+    /* ─── HERO SECTION ─── */
+    .hero-section {
+      display: flex; flex-wrap: wrap; justify-content: space-between;
+      align-items: flex-start; gap: 40px; margin-bottom: 0;
+    }
+    .hero-block { flex: 1; min-width: 260px; }
     .hero-pre { font-size: 16px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ocean-dim); font-weight: 500; margin-bottom: 10px; }
     .hero-title {
-      font-size: 130px; line-height: 0.88; letter-spacing: -0.02em; font-weight: 500;
+      font-size: clamp(48px, 11vw, 130px); line-height: 0.88; letter-spacing: -0.02em; font-weight: 500;
       text-transform: uppercase; color: var(--gold);
       text-shadow: 0 0 80px rgba(212,175,55,0.25), 0 0 160px rgba(212,175,55,0.10);
     }
@@ -183,18 +182,22 @@
     .hero-sub { margin-top: 20px; font-size: 22px; letter-spacing: 0.05em; color: var(--ink-mid); font-weight: 400; line-height: 1.4; }
 
     /* ─── PULL QUOTE ─── */
-    .pull-quote { top: 470px; right: 62px; width: 380px; text-align: right; }
+    .pull-quote { width: 340px; flex-shrink: 0; text-align: right; align-self: flex-end; }
     .pull-quote p { font-size: 28px; line-height: 1.22; font-weight: 300; color: var(--ink); letter-spacing: 0.02em; }
     .pull-quote p em { color: var(--gold); font-style: normal; }
 
-    /* ─── CONTEXT ─── */
-    .context-block { top: 700px; left: 62px; width: 500px; }
+    /* ─── CONTEXT SECTION ─── */
+    .context-section {
+      display: flex; flex-wrap: wrap; gap: 48px;
+      align-items: flex-start; margin: 0;
+    }
+    .context-block { flex: 1; min-width: 260px; }
     .context-label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 14px; }
     .context-text { font-size: 18px; line-height: 1.65; color: var(--ink-mid); }
     .context-text strong { color: var(--ink); font-weight: 600; }
 
     /* ─── PLATFORM PILLS ─── */
-    .platform-block { top: 710px; right: 62px; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; width: 340px; }
+    .platform-block { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; width: 300px; flex-shrink: 0; }
     .platform-item {
       border: 1px solid var(--gold-border); border-radius: 999px;
       padding: 10px 22px; font-size: 15px; letter-spacing: 0.06em;
@@ -227,7 +230,6 @@
 
     /* ─── GIF SECTIONS ─── */
     .gif-section {
-      left: 62px; right: 62px;
       display: flex; align-items: flex-start; gap: 60px;
     }
     .gif-section.flip { flex-direction: row-reverse; }
@@ -269,10 +271,10 @@
     .step-pill p strong { color: var(--ink); }
 
     /* ─── FEATURES ─── */
-    .features-header { left: 62px; }
+    .features-header { margin-bottom: 20px; }
     .features-header h2 { font-size: 52px; font-weight: 500; color: var(--ink); line-height: 1.0; letter-spacing: -0.02em; }
     .features-header h2 .gold-em { color: var(--gold); }
-    .features-grid { left: 62px; right: 62px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 40px; }
     .feat-item {
       padding: 26px 28px; background: rgba(10,20,38,0.72);
       border: 1px solid var(--gold-border); border-radius: 12px;
@@ -283,14 +285,14 @@
     .feat-item p { font-size: 14px; line-height: 1.6; color: var(--ink-dim); }
 
     /* ─── PHILOSOPHY ─── */
-    .philosophy { left: 62px; right: 62px; }
+    .philosophy { margin: 0 0 40px; }
     .philosophy-inner { border-top: 1px solid var(--gold-border); border-bottom: 1px solid var(--gold-border); padding: 32px 0; text-align: center; }
     .philosophy-quote { font-size: 32px; font-weight: 300; color: var(--ink); line-height: 1.3; font-style: italic; }
     .philosophy-quote strong { font-style: normal; font-weight: 700; color: var(--gold); }
     .philosophy-attr { margin-top: 14px; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
 
     /* ─── CTA ─── */
-    .cta-block { left: 62px; right: 62px; text-align: center; }
+    .cta-block { text-align: center; padding: 20px 0 40px; }
     .cta-url {
       display: inline-block;
       border: 1px solid var(--gold-border); border-radius: 999px;
@@ -301,7 +303,7 @@
     }
 
     /* ─── FOOTER ─── */
-    .footer-bar { left: 62px; right: 62px; }
+    .footer-bar { }
     .footer-bar-inner {
       border-top: 1px solid rgba(212,175,55,0.18); padding-top: 16px;
       display: flex; justify-content: space-between; align-items: center;
@@ -319,105 +321,36 @@
       }
     }
 
-    /* ─────────────────────────────────────────────────────────────
-       OPTION B — kept as reference only (scaler handles all sizes now)
-       .layer elements leave absolute-position mode and stack in
-       DOM order as normal block/flex children. Desktop layout
-       (≥ 900 px) is completely unchanged.
-    ───────────────────────────────────────────────────────────── */
-    @media (max-width: 899px) {
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      .poster { padding: 40px 20px 60px; }
 
-      /* Prevent decorative backgrounds (1100px+ wide) from causing page scroll */
-      html, body { overflow-x: hidden !important; }
+      /* Moon: smaller, less intrusive on narrow screens */
+      .moon-wrap { width: 140px; height: 140px; top: -20px; right: -10px; }
 
-      /* Poster → full-width normal-flow block */
-      .poster {
-        width: 100%;
-        min-height: unset;
-        overflow: visible;       /* stop clipping static children at poster edge */
-        padding: 96px 20px 56px; /* top gap keeps moon decor from clashing with text */
-        zoom: 1;                 /* cancel JS-set zoom — layout handles it now */
-      }
+      /* Hero stacks vertically */
+      .hero-section { flex-direction: column; gap: 24px; }
+      .pull-quote   { width: 100%; text-align: left; align-self: auto; }
+      .pull-quote p { font-size: 20px; }
 
-      /* All content layers → document flow */
-      .layer {
-        position: static !important;
-        width:    auto   !important;
-        left:     auto   !important;
-        right:    auto   !important;
-      }
+      /* Context stacks vertically */
+      .context-section { flex-direction: column; gap: 24px; }
+      .platform-block  { width: 100%; align-items: flex-start; }
 
-      /* Gold dividers: restore full-width block spacing */
-      .gold-rule {
-        display: block;
-        margin: 28px 0;
-      }
-
-      /* ── Hero ─────────────────────────────── */
-      .hero-block  { margin-bottom: 20px; }
-      .hero-pre    { font-size: 11px; }
-      .hero-title  { font-size: 54px; }
-      .hero-sub    { font-size: 15px; }
-
-      /* ── Pull quote ────────────────────────── */
-      .pull-quote   { text-align: left; margin-bottom: 12px; }
-      .pull-quote p { font-size: 18px; }
-
-      /* ── Context block ─────────────────────── */
-      .context-block { margin-bottom: 20px; }
-      .context-text  { font-size: 15px; }
-
-      /* ── Platform pills ────────────────────── */
-      .platform-block { align-items: flex-start; margin-bottom: 12px; }
-
-      /* ── GIF sections: vertical stack ─────── */
+      /* GIF sections: phone on top, copy below */
       .gif-section,
-      .gif-section.flip {
-        flex-direction: column !important;
-        gap: 20px;
-        margin-bottom: 12px;
-      }
-      .gif-phone {
-        width: 188px;
-        height: 396px;
-        flex-shrink: 0;
-        margin: 0 auto;
-      }
-      .gif-copy h2 { font-size: 28px; }
-      .gif-desc    { font-size: 14px; }
+      .gif-section.flip { flex-direction: column !important; gap: 24px; }
+      .gif-phone   { width: 200px; height: 420px; margin: 0 auto; }
+      .gif-copy h2 { font-size: clamp(24px, 7vw, 50px); }
 
-      /* ── Features: single column ───────────── */
-      .features-header    { margin-bottom: 16px; }
-      .features-header h2 { font-size: 30px; }
-      .features-grid      { grid-template-columns: 1fr !important; margin-bottom: 12px; }
+      /* Features: single column */
+      .features-grid { grid-template-columns: 1fr; }
 
-      /* ── Philosophy ────────────────────────── */
-      .philosophy-quote { font-size: 18px; }
+      /* Philosophy */
+      .philosophy-quote { font-size: 20px; }
 
-      /* ── CTA ───────────────────────────────── */
-      .cta-block { padding: 20px 0; }
-      .cta-url   { font-size: 14px; padding: 12px 24px; }
-
-      /* ── Footer ────────────────────────────── */
-      .footer-bar-inner {
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-      }
-
-      /* ── Moon: smaller, tucked corner ─────── */
-      .moon-wrap {
-        width: 130px;
-        height: 130px;
-        top: -20px;
-        right: -10px;
-      }
-      /* Reduce 5-layer shadow to 2 on mobile GPU */
-      .moon-img {
-        filter:
-          drop-shadow(0 0 20px rgba(74,144,226,0.70))
-          drop-shadow(0 0 50px rgba(74,159,226,0.40));
-      }
+      /* Footer stacks */
+      .footer-bar-inner { flex-direction: column; align-items: center; gap: 8px; }
     }
   </style>
 </head>
@@ -452,47 +385,51 @@
   <!--  HERO                           -->
   <!-- ════════════════════════════════ -->
 
-  <div class="layer hero-block">
-    <p class="hero-pre">A Color Tool for Real Painting Workflow</p>
-    <a href="http://engineering.europawaters.xyz/color-wheel.html" target="_blank" rel="noopener" style="text-decoration:none;">
-    <h1 class="hero-title">
-      <span class="line-light">Plein</span>
-      <span class="line-outline">Color</span>
-      <span class="line-dim">Wheel</span>
-    </h1>
-    </a>
-    <p class="hero-sub">See the landscape. Know the color. Paint with confidence.</p>
-  </div>
+  <section class="hero-section">
+    <div class="hero-block">
+      <p class="hero-pre">A Color Tool for Real Painting Workflow</p>
+      <a href="http://engineering.europawaters.xyz/color-wheel.html" target="_blank" rel="noopener" style="text-decoration:none;">
+      <h1 class="hero-title">
+        <span class="line-light">Plein</span>
+        <span class="line-outline">Color</span>
+        <span class="line-dim">Wheel</span>
+      </h1>
+      </a>
+      <p class="hero-sub">See the landscape. Know the color. Paint with confidence.</p>
+    </div>
 
-  <div class="layer pull-quote">
-    <p>Most color tools are built<br>for screens — not studios.<br><em>This one is different.</em></p>
-  </div>
+    <div class="pull-quote">
+      <p>Most color tools are built<br>for screens — not studios.<br><em>This one is different.</em></p>
+    </div>
+  </section>
 
-  <div class="gold-rule layer" style="top:666px;"></div>
+  <div class="gold-rule"></div>
 
-  <div class="layer context-block">
-    <p class="context-label">What It Does</p>
-    <p class="context-text">
-      <strong>PleinColorWheel</strong> is a plein air painting learning tool engineered around
-      <strong>subtractive RYB pigment physics</strong> — the color system that governs every stroke
-      on a real canvas. Hold it up to the landscape, identify your hues, and know exactly what
-      to mix before your brush ever touches paint.
-    </p>
-  </div>
+  <section class="context-section">
+    <div class="context-block">
+      <p class="context-label">What It Does</p>
+      <p class="context-text">
+        <strong>PleinColorWheel</strong> is a plein air painting learning tool engineered around
+        <strong>subtractive RYB pigment physics</strong> — the color system that governs every stroke
+        on a real canvas. Hold it up to the landscape, identify your hues, and know exactly what
+        to mix before your brush ever touches paint.
+      </p>
+    </div>
 
-  <div class="layer platform-block">
-    <div class="platform-item">SwiftUI <span>Native iOS</span></div>
-    <div class="platform-item">RYB Mixing <span>Painter-first physics</span></div>
-    <a class="platform-item" href="https://apps.apple.com/us/app/pleincolorwheel/id6790414651" target="_blank" rel="noopener" style="text-decoration:none;">App Store <span>Free download</span></a>
-  </div>
+    <div class="platform-block">
+      <div class="platform-item">SwiftUI <span>Native iOS</span></div>
+      <div class="platform-item">RYB Mixing <span>Painter-first physics</span></div>
+      <a class="platform-item" href="https://apps.apple.com/us/app/pleincolorwheel/id6790414651" target="_blank" rel="noopener" style="text-decoration:none;">App Store <span>Free download</span></a>
+    </div>
+  </section>
 
-  <div class="gold-rule layer" style="top:966px;"></div>
+  <div class="gold-rule"></div>
 
   <!-- ════════════════════════════════ -->
   <!--  MIXER GIF                      -->
   <!-- ════════════════════════════════ -->
 
-  <div class="layer gif-section" style="top:990px;">
+  <div class="gif-section">
 
     <div class="iphone-frame gif-phone">
       <img src="assets/gifs/mixer-iphone-mediums.gif"
@@ -512,13 +449,13 @@
     </div>
   </div>
 
-  <div class="gold-rule layer" style="top:1710px;"></div>
+  <div class="gold-rule"></div>
 
   <!-- ════════════════════════════════ -->
   <!--  PALETTE GIF                    -->
   <!-- ════════════════════════════════ -->
 
-  <div class="layer gif-section flip" style="top:1740px;">
+  <div class="gif-section flip">
 
     <div class="iphone-frame gif-phone">
       <img src="assets/gifs/palette-iphone.gif"
@@ -552,18 +489,18 @@
     </div>
   </div>
 
-  <div class="gold-rule layer" style="top:2470px;"></div>
+  <div class="gold-rule"></div>
 
   <!-- ════════════════════════════════ -->
   <!--  FEATURES                       -->
   <!-- ════════════════════════════════ -->
 
-  <div class="layer features-header" style="top:2498px;">
+  <div class="features-header">
     <span class="sec-label">Built for Plein Air Painters</span>
     <h2>Crafted for<br><span class="gold-em">the field.</span></h2>
   </div>
 
-  <div class="layer features-grid" style="top:2640px;">
+  <div class="features-grid">
     <div class="feat-item">
       <div class="feat-num">Feature 01</div>
       <h4>Subtractive RYB Physics</h4>
@@ -590,7 +527,7 @@
   <!--  PHILOSOPHY                     -->
   <!-- ════════════════════════════════ -->
 
-  <div class="layer philosophy" style="top:2970px;">
+  <div class="philosophy">
     <div class="philosophy-inner">
       <p class="philosophy-quote">
         "The field tool plein air painters have been waiting for —<br>
@@ -604,7 +541,7 @@
   <!--  CTA — hyperlink only           -->
   <!-- ════════════════════════════════ -->
 
-  <div class="layer cta-block" style="top:3190px; left:62px; right:62px; text-align:center;">
+  <div class="cta-block">
     <a class="cta-url"
        href="https://apps.apple.com/us/app/pleincolorwheel/id6790414651"
        target="_blank" rel="noopener">
@@ -616,7 +553,7 @@
   <!--  FOOTER                         -->
   <!-- ════════════════════════════════ -->
 
-  <div class="layer footer-bar" style="top:3290px;">
+  <div class="footer-bar">
     <div class="footer-bar-inner">
       <span class="brand">Europa Waters LLC</span>
       <span class="platform">iOS · Built in SwiftUI</span>
@@ -628,41 +565,6 @@
 </div><!-- /.poster-scaler -->
 
 <script>
-  /* ── Scale the 1080px poster to fit the viewport on mobile ──
-     zoom (unlike transform:scale) resizes the layout box, so iOS Safari
-     sees a correctly-sized page and vertical scroll just works.         ── */
-  (function scalePoster() {
-    var POSTER_W = 1080;
-    var POSTER_H = 3380;
-    function apply() {
-      var scale = Math.min(1, window.innerWidth / POSTER_W);
-      var root  = document.documentElement;
-      root.style.setProperty('--poster-scale', scale);
-      /* Wrapper height = scaled poster height → correct page scroll length */
-      root.style.setProperty('--scaled-height', Math.round(POSTER_H * scale) + 'px');
-    }
-    apply();
-    window.addEventListener('resize', apply);
-  })();
-
-  function startGif(slotId, dotsId, labelId, ms) {
-    const slot  = document.getElementById(slotId);
-    const dots  = document.getElementById(dotsId);
-    const label = document.getElementById(labelId);
-    if (!slot) return;
-    const imgs   = Array.from(slot.querySelectorAll('img'));
-    const dotEls = dots ? Array.from(dots.querySelectorAll('.frame-dot')) : [];
-    let i = 0;
-    setInterval(() => {
-      imgs[i].classList.remove('active');
-      if (dotEls[i]) dotEls[i].classList.remove('active');
-      i = (i + 1) % imgs.length;
-      imgs[i].classList.add('active');
-      if (dotEls[i]) dotEls[i].classList.add('active');
-      if (label) label.textContent = imgs[i].dataset.label || '';
-    }, ms);
-  }
-
   document.getElementById('moonImg').addEventListener('error', function() { this.classList.add('errored'); });
 </script>
 

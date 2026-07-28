@@ -28,6 +28,15 @@
 
     body > * { position: relative; z-index: 1; }
 
+    .page-gold-frame {
+      max-width: 1120px;
+      margin: 0 auto 24px;
+      padding: 18px 20px 8px;
+      border: 2px solid rgba(212, 175, 55, 0.55);
+      border-radius: 10px;
+      background: transparent;
+    }
+
     /* ---- LAYOUT ---- */
     .cw-layout {
       display: grid;
@@ -159,22 +168,36 @@
     .app-badge {
       display: flex;
       align-items: center;
-      gap: 0.9rem;
-      padding: 1rem 1.25rem;
-      background: var(--dark);
-      color: var(--white);
+      justify-content: center;
+      padding: 0.78rem 1.25rem;
+      background: transparent;
+      color: #f5dea1;
       border-radius: var(--radius);
       text-decoration: none;
       font-family: 'Helvetica Neue', Arial, sans-serif;
-      transition: background 0.2s;
-      width: fit-content;
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      border: 2px solid rgba(212, 175, 55, 0.72);
+      box-shadow: none;
+      transition: all 0.2s;
+      width: 100%;
     }
 
-    .app-badge:hover { background: var(--purple); }
+    .app-badge:hover {
+      background: transparent;
+      border-color: rgba(212, 175, 55, 0.9);
+      color: #fff2c8;
+      transform: translateY(-1px);
+    }
 
-    .app-badge-text { line-height: 1.3; }
-    .app-badge-sub  { font-size: 0.68rem; opacity: 0.65; display: block; }
-    .app-badge-main { font-size: 0.92rem; font-weight: 600; }
+    .app-cta-stack {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.7rem;
+      width: fit-content;
+    }
 
     /* ---- RESPONSIVE ---- */
     @media (max-width: 860px) {
@@ -213,7 +236,7 @@
   </nav>
 
   <main>
-
+    <div class="page-gold-frame">
     <section class="hero">
       <p class="hero-eyebrow">iOS App &nbsp;·&nbsp; Europa Waters LLC &nbsp;·&nbsp; Plein Air Color Theory</p>
       <h1>Color <em>Wheel</em></h1>
@@ -285,25 +308,16 @@
             <figcaption class="painting-caption">See the landscape &nbsp;·&nbsp; Know the color &nbsp;·&nbsp; Color Wheel by Europa Waters LLC</figcaption>
           </figure>
 
-          <!-- App Store badge -->
-          <a href="https://apps.apple.com/us/app/pleincolorwheel/id6790414651" target="_blank" rel="noopener" class="app-badge">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53
-                0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52
-                2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03
-                2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42
-                1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04
-                3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-            </svg>
-            <div class="app-badge-text">
-              <span class="app-badge-sub">Download on the</span>
-              <span class="app-badge-main">App Store — PleinColorWheel</span>
-            </div>
-          </a>
+          <!-- App Store and tutorial buttons -->
+          <div class="app-cta-stack">
+            <a href="https://apps.apple.com/us/app/pleincolorwheel/id6790414651" target="_blank" rel="noopener" class="app-badge">App Store - PleinColorWheel</a>
+            <a class="app-badge" href="pleincolorwheel-infographic-v7.html">Plein Color Wheel Tutorial</a>
+          </div>
 
         </div>
       </div>
     </section>
+    </div>
 
   </main>
 

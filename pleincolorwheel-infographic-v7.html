@@ -304,10 +304,14 @@
     ───────────────────────────────────────────────────────────── */
     @media (max-width: 899px) {
 
+      /* Prevent decorative backgrounds (1100px+ wide) from causing page scroll */
+      html, body { overflow-x: hidden !important; }
+
       /* Poster → full-width normal-flow block */
       .poster {
         width: 100%;
         min-height: unset;
+        overflow: visible;       /* stop clipping static children at poster edge */
         padding: 96px 20px 56px; /* top gap keeps moon decor from clashing with text */
         zoom: 1;                 /* cancel JS-set zoom — layout handles it now */
       }
@@ -316,6 +320,8 @@
       .layer {
         position: static !important;
         width:    auto   !important;
+        left:     auto   !important;
+        right:    auto   !important;
       }
 
       /* Gold dividers: restore full-width block spacing */

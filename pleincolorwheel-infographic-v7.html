@@ -153,6 +153,14 @@
 
     .layer { position: relative; z-index: 5; }
 
+    /* ─── SECTION Z-INDEX — content must sit above vignette overlays (z-index 3) ─── */
+    .hero-section, .context-section, .gif-section,
+    .features-header, .features-grid, .philosophy,
+    .cta-block, .footer-bar, .gold-rule {
+      position: relative;
+      z-index: 10;
+    }
+
     /* ─── LOGO ─── */
     .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
     .logo-img {

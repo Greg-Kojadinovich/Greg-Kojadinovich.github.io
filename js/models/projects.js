@@ -24,7 +24,7 @@ const projects = [
     title: "PleinColorWheel — iOS App",
     tag: "iOS / SwiftUI",
     medal: null,
-    description: "Free iOS app for painters learning color theory. Built with SwiftUI and powered by real subtractive RYB pigment mixing physics — not the RGB model taught in digital design. Try the interactive web version on the Color Wheel page.",
+    description: "An iOS app for painters learning color theory. Plein ColorWheel can be used as a field tool while painting the landscape before you. Discover a new color every day. Built with SwiftUI and powered by real subtractive RYB pigment mixing mathematical modeling. Buy now on the iOS App Store.",
     link: "https://apps.apple.com/us/app/pleincolorwheel/id6790414651",
     linkLabel: "Download on App Store",
     thumb: "assets/images/AppIcon.png",
